@@ -1,0 +1,25 @@
+{
+  "socials": {
+    "instagram": {
+      "handle": "manmohandogra_offcial",
+      "url": "https://www.instagram.com/manmohandogra_offcial",
+      "public": true
+    },
+    "facebook": {
+      "url": "https://www.facebook.com/profile.php?id=100010316465657",
+      "public": true
+    }
+  },
+  "contact": {
+    "email": {
+      "value": "manmohandograuk@gmail.com",
+      "note": "DO NOT render as plain text in HTML. Use JS obfuscation or a contact form to prevent webcrawler scraping.",
+      "public": false
+    },
+    "whatsapp": {
+      "number": "+447586236182",
+      "note": "DO NOT render as plain text in HTML. Use JS obfuscation or a click-to-chat link rendered via JavaScript only.",
+      "public": false
+    }
+  }
+}
