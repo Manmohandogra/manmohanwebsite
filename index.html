@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manmohan Dogra | Tabla Virtuoso</title>
+    <meta name="description" content="Manmohan Dogra - Tabla Virtuoso from the Banaras Gharana. Bridging Continents Through the Ancient Language of Rhythm.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #e94560;
+            --text: #eaeaea;
+            --text-muted: #a0a0a0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(233, 69, 96, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(233, 69, 96, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        
+        .hero .tagline {
+            font-size: 1.2rem;
+            max-width: 600px;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--accent);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+        
+        .about-info {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+        
+        .about-info h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .info-item {
+            margin-bottom: 1rem;
+        }
+        
+        .info-item strong {
+            color: var(--text);
+        }
+        
+        .info-item span {
+            color: var(--text-muted);
+            margin-left: 0.5rem;
+        }
+        
+        /* Quote */
+        .quote-section {
+            background: var(--secondary);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .quote-section blockquote {
+            font-size: 1.5rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text);
+        }
+        
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-category {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            font-size: 0.9rem;
+            text-transform: capitalize;
+        }
+        
+        /* Awards */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .award-card {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .award-card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .award-card p {
+            color: var(--text-muted);
+        }
+        
+        /* Performances */
+        .performances-list {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .performance-item {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+        
+        .performance-item h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .performance-item .type {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact */
+        .contact-section {
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--secondary);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background 0.3s;
+        }
+        
+        .social-link:hover {
+            background: var(--accent);
+        }
+        
+        .contact-button {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">MD</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#awards">Awards</a></li>
+            <li><a href="#performances">Performances</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Manmohan Dogra</h1>
+        <p class="subtitle">Tabla Virtuoso</p>
+        <p class="tagline">Bridging Continents Through the Ancient Language of Rhythm</p>
+        <a href="#about" class="cta-button">Discover More</a>
+    </section>
+
+    <section id="about">
+        <h2>About</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Manmohan Dogra is a distinguished tabla virtuoso from the Banaras Gharana, with extensive knowledge of Delhi and Ajrada styles. With over 20 years of experience in both solo and accompaniment performances, he has dedicated his life to mastering the ancient art of Indian classical percussion.</p>
+                <p>His musical journey began under the guidance of Pt. Vijay Shankar Mishra, and he holds a Bachelor and Master's in Music (Percussion) from the University of Delhi, as well as an MSc in Music Business from Edinburgh Napier University.</p>
+                <p>Playing the tabla is not just about mastering compositions but about developing a true sense of rhythm that can travel across traditions. Fusion is not about replacing one form with another; it is about blending them respectfully and finding a shared voice.</p>
+            </div>
+            <div class="about-info">
+                <h3>Background</h3>
+                <div class="info-item">
+                    <strong>Gharana:</strong><span>Banaras Gharana</span>
+                </div>
+                <div class="info-item">
+                    <strong>Based In:</strong><span>United Kingdom</span>
+                </div>
+                <div class="info-item">
+                    <strong>Guru:</strong><span>Pt. Vijay Shankar Mishra</span>
+                </div>
+                <div class="info-item">
+                    <strong>Experience:</strong><span>20+ Years</span>
+                </div>
+                <div class="info-item">
+                    <strong>Instrument:</strong><span>Tabla (Solo & Accompaniment)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="quote-section">
+        <blockquote>"Playing the tabla is not just about mastering compositions but about developing a true sense of rhythm that can travel across traditions. Fusion is not about replacing one form with another; it is about blending them respectfully and finding a shared voice."</blockquote>
+    </div>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery" id="gallery-container">
+            <!-- Photos will be loaded dynamically -->
+        </div>
+    </section>
+
+    <section id="awards">
+        <h2>Awards & Recognition</h2>
+        <div class="awards-grid">
+            <div class="award-card">
+                <h3>Tabla Shree Award</h3>
+                <p>Awarded twice — one of the most coveted recognitions in Indian classical percussion, honouring exceptional mastery and contribution to the tabla tradition.</p>
+            </div>
+            <div class="award-card">
+                <h3>Tabla Shiromani Award</h3>
+                <p>Recognising Manmohan as a 'crown jewel' of tabla artistry, this distinction celebrates his outstanding artistry, dedication, and service to Hindustani music.</p>
+            </div>
+            <div class="award-card">
+                <h3>Critical Acclaim — Edinburgh Fringe</h3>
+                <p>Widely praised by critics for performances described as 'a rhythmic revelation' — technical precision fused with profound emotional depth.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="performances">
+        <h2>Performances</h2>
+        <div class="performances-list">
+            <div class="performance-item">
+                <h3>Edinburgh Festival Fringe 2024</h3>
+                <p class="type">Solo Performance</p>
+                <p>Performed as a solo tabla artist at the world's largest arts festival, receiving critical acclaim for his programme in Taal Teentaal alongside Edinburgh-based sitarist David Beards.</p>
+            </div>
+            <div class="performance-item">
+                <h3>Royal Albert Hall — BBC Proms</h3>
+                <p class="type">Accompaniment</p>
+                <p>Provided tabla accompaniment for renowned artists at prestigious venues across the UK.</p>
+            </div>
+            <div class="performance-item">
+                <h3>All India Radio & Doordarshan</h3>
+                <p class="type">Broadcast Performance</p>
+                <p>Regular featured artist on India's national broadcasting platforms.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Get in Touch</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Follow on social media or reach out for bookings and collaborations</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/manmohandogra_offcial" target="_blank" class="social-link">
+                Instagram
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100010316465657" target="_blank" class="social-link">
+                Facebook
+            </a>
+        </div>
+        <a href="#" id="whatsapp-link" class="contact-button">Contact via WhatsApp</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Manmohan Dogra. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Load photos from JSON
+        const photos = [
+            { file: "DSC00194.jpg", category: "performance" },
+            { file: "DSC00212.jpg", category: "performance" },
+            { file: "DSC01903 (2025-08-09T20_53_01.929).JPG", category: "performance" },
+            { file: "DSC_6030.jpg", category: "portrait" },
+            { file: "DSC_6032.jpg", category: "portrait" },
+            { file: "DSC_6526.jpg", category: "portrait" },
+            { file: "IMG-20240823-WA0000.jpg", category: "performance" },
+            { file: "IMG_4127.JPG", category: "performance" },
+            { file: "IMG_4200.JPG", category: "performance" },
+            { file: "IMG_4501.JPG", category: "performance" },
+            { file: "Screenshot 2022-11-16 at 17.21.05.PNG", category: "other" },
+            { file: "Z6B_6546.jpg", category: "portrait" },
+            { file: "Z6B_6554.jpg", category: "portrait" },
+            { file: "_DSF9214_Edit.JPG", category: "portrait" }
+        ];
+
+        const galleryContainer = document.getElementById('gallery-container');
+        
+        photos.forEach(photo => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.innerHTML = `
+                <img src="${photo.file}" alt="${photo.category}" loading="lazy">
+                <div class="gallery-category">${photo.category}</div>
+            `;
+            galleryContainer.appendChild(item);
+        });
+
+        // Obfuscated WhatsApp link (JavaScript only)
+        (function() {
+            const parts = ['+', '44', '758', '623', '6182'];
+            const number = parts.join('');
+            const link = document.getElementById('whatsapp-link');
+            link.href = 'https://wa.me/' + number;
+        })();
+    </script>
+</body>
+</html>
