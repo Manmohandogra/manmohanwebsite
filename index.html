@@ -1,500 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manmohan Dogra | Tabla Virtuoso</title>
-    <meta name="description" content="Manmohan Dogra - Tabla Virtuoso from the Banaras Gharana. Bridging Continents Through the Ancient Language of Rhythm.">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --primary: #1a1a2e;
-            --secondary: #16213e;
-            --accent: #e94560;
-            --text: #eaeaea;
-            --text-muted: #a0a0a0;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--primary);
-            color: var(--text);
-            line-height: 1.6;
-        }
-        
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(26, 26, 46, 0.95);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent);
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-        
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 70%, rgba(233, 69, 96, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 30%, rgba(233, 69, 96, 0.05) 0%, transparent 40%);
-            pointer-events: none;
-        }
-        
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero .subtitle {
-            font-size: 1.5rem;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-        
-        .hero .tagline {
-            font-size: 1.2rem;
-            max-width: 600px;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
-        }
-        
-        /* Sections */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            color: var(--accent);
-        }
-        
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-        
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: var(--text-muted);
-        }
-        
-        .about-info {
-            background: var(--secondary);
-            padding: 2rem;
-            border-radius: 15px;
-        }
-        
-        .about-info h3 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-        
-        .info-item {
-            margin-bottom: 1rem;
-        }
-        
-        .info-item strong {
-            color: var(--text);
-        }
-        
-        .info-item span {
-            color: var(--text-muted);
-            margin-left: 0.5rem;
-        }
-        
-        /* Quote */
-        .quote-section {
-            background: var(--secondary);
-            padding: 4rem 2rem;
-            text-align: center;
-            margin: 3rem 0;
-        }
-        
-        .quote-section blockquote {
-            font-size: 1.5rem;
-            font-style: italic;
-            max-width: 800px;
-            margin: 0 auto;
-            color: var(--text);
-        }
-        
-        /* Gallery */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            aspect-ratio: 4/3;
-            cursor: pointer;
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .gallery-category {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1rem;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white;
-            font-size: 0.9rem;
-            text-transform: capitalize;
-        }
-        
-        /* Awards */
-        .awards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .award-card {
-            background: var(--secondary);
-            padding: 2rem;
-            border-radius: 15px;
-            border-left: 4px solid var(--accent);
-        }
-        
-        .award-card h3 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-        
-        .award-card p {
-            color: var(--text-muted);
-        }
-        
-        /* Performances */
-        .performances-list {
-            display: grid;
-            gap: 2rem;
-        }
-        
-        .performance-item {
-            background: var(--secondary);
-            padding: 2rem;
-            border-radius: 15px;
-        }
-        
-        .performance-item h3 {
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-        
-        .performance-item .type {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        
-        /* Contact */
-        .contact-section {
-            text-align: center;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: var(--secondary);
-            color: var(--text);
-            text-decoration: none;
-            border-radius: 50px;
-            transition: background 0.3s;
-        }
-        
-        .social-link:hover {
-            background: var(--accent);
-        }
-        
-        .contact-button {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 1rem 2rem;
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--secondary);
-            padding: 2rem;
-            text-align: center;
-            color: var(--text-muted);
-        }
-        
-        /* Mobile */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Manmohan Dogra — Tabla Virtuoso | Banaras Gharana</title>
+<meta name="description" content="Manmohan Dogra, Tabla Virtuoso of the Banaras Gharana. Bridging continents through the ancient language of rhythm — based in the United Kingdom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">MD</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#awards">Awards</a></li>
-            <li><a href="#performances">Performances</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
 
-    <section class="hero">
-        <h1>Manmohan Dogra</h1>
-        <p class="subtitle">Tabla Virtuoso</p>
-        <p class="tagline">Bridging Continents Through the Ancient Language of Rhythm</p>
-        <a href="#about" class="cta-button">Discover More</a>
-    </section>
+<!-- ================= NAV ================= -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><span class="om">ॐ</span> MANMOHAN DOGRA</a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="performances.html">Performances</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="videos.html">Videos</a></li>
+      <li><a href="press.html">Press</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="book.html">Book</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <section id="about">
-        <h2>About</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>Manmohan Dogra is a distinguished tabla virtuoso from the Banaras Gharana, with extensive knowledge of Delhi and Ajrada styles. With over 20 years of experience in both solo and accompaniment performances, he has dedicated his life to mastering the ancient art of Indian classical percussion.</p>
-                <p>His musical journey began under the guidance of Pt. Vijay Shankar Mishra, and he holds a Bachelor and Master's in Music (Percussion) from the University of Delhi, as well as an MSc in Music Business from Edinburgh Napier University.</p>
-                <p>Playing the tabla is not just about mastering compositions but about developing a true sense of rhythm that can travel across traditions. Fusion is not about replacing one form with another; it is about blending them respectfully and finding a shared voice.</p>
-            </div>
-            <div class="about-info">
-                <h3>Background</h3>
-                <div class="info-item">
-                    <strong>Gharana:</strong><span>Banaras Gharana</span>
-                </div>
-                <div class="info-item">
-                    <strong>Based In:</strong><span>United Kingdom</span>
-                </div>
-                <div class="info-item">
-                    <strong>Guru:</strong><span>Pt. Vijay Shankar Mishra</span>
-                </div>
-                <div class="info-item">
-                    <strong>Experience:</strong><span>20+ Years</span>
-                </div>
-                <div class="info-item">
-                    <strong>Instrument:</strong><span>Tabla (Solo & Accompaniment)</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="quote-section">
-        <blockquote>"Playing the tabla is not just about mastering compositions but about developing a true sense of rhythm that can travel across traditions. Fusion is not about replacing one form with another; it is about blending them respectfully and finding a shared voice."</blockquote>
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-image" style="background-image:url('DSC00212.jpg')"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="om">ॐ</span>
+    <div class="hero-ornament"><span class="line"></span><span class="caps">Banaras Gharana</span><span class="line"></span></div>
+    <h1>MANMOHAN DOGRA</h1>
+    <p class="sub">Tabla Virtuoso</p>
+    <p class="tagline">Bridging continents through the ancient language of rhythm — a disciple of Pt. Vijay Shankar Mishra carrying more than two decades of the Banaras tradition to stages across the United Kingdom and beyond.</p>
+    <div class="btn-row">
+      <a href="book.html" class="btn btn-primary">Book the Artist</a>
+      <a href="videos.html" class="btn">Watch Performances</a>
     </div>
+  </div>
+</header>
 
-    <section id="gallery">
-        <h2>Gallery</h2>
-        <div class="gallery" id="gallery-container">
-            <!-- Photos will be loaded dynamically -->
-        </div>
-    </section>
+<!-- ================= ABOUT SNAPSHOT ================= -->
+<section>
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <span class="caps" style="color:var(--accent)">A Rhythmic Revelation</span>
+        <h2 style="margin-top:0.8rem">A Voice of the Banaras Gharana</h2>
+        <p>Rooted in the revered Banaras Gharana and shaped by two decades of dedicated practice, Manmohan Dogra is one of the most compelling voices in Hindustani classical percussion today. His sound carries the lyrical expressiveness of Banaras Baaj — every <em>dha</em>, <em>tun</em>, and <em>na</em> rings with crystalline precision.</p>
+        <p>A disciple of Pt. Vijay Shankar Mishra, he has further broadened his rhythmic palette through study of the Delhi and Ajrada Gharanas — one of the few artists today who fluently speaks the language of multiple tabla traditions.</p>
+        <a href="about.html" class="btn" style="margin-top:1rem">Read Full Biography</a>
+      </div>
+      <div>
+        <img src="DSC_6030.jpg" alt="Manmohan Dogra portrait" style="border-radius:4px;border:1px solid var(--border);aspect-ratio:3/4;object-fit:cover;width:100%">
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="awards">
-        <h2>Awards & Recognition</h2>
-        <div class="awards-grid">
-            <div class="award-card">
-                <h3>Tabla Shree Award</h3>
-                <p>Awarded twice — one of the most coveted recognitions in Indian classical percussion, honouring exceptional mastery and contribution to the tabla tradition.</p>
-            </div>
-            <div class="award-card">
-                <h3>Tabla Shiromani Award</h3>
-                <p>Recognising Manmohan as a 'crown jewel' of tabla artistry, this distinction celebrates his outstanding artistry, dedication, and service to Hindustani music.</p>
-            </div>
-            <div class="award-card">
-                <h3>Critical Acclaim — Edinburgh Fringe</h3>
-                <p>Widely praised by critics for performances described as 'a rhythmic revelation' — technical precision fused with profound emotional depth.</p>
-            </div>
-        </div>
-    </section>
+<!-- ================= PULL QUOTE ================= -->
+<section style="padding-top:0">
+  <div class="container">
+    <blockquote class="pull-quote">
+      Playing the tabla is not just about mastering compositions but about developing a true sense of rhythm that can travel across traditions. Fusion is not about replacing one form with another; it is about blending them respectfully and finding a shared voice.
+      <cite>— Manmohan Dogra</cite>
+    </blockquote>
+  </div>
+</section>
 
-    <section id="performances">
-        <h2>Performances</h2>
-        <div class="performances-list">
-            <div class="performance-item">
-                <h3>Edinburgh Festival Fringe 2024</h3>
-                <p class="type">Solo Performance</p>
-                <p>Performed as a solo tabla artist at the world's largest arts festival, receiving critical acclaim for his programme in Taal Teentaal alongside Edinburgh-based sitarist David Beards.</p>
-            </div>
-            <div class="performance-item">
-                <h3>Royal Albert Hall — BBC Proms</h3>
-                <p class="type">Accompaniment</p>
-                <p>Provided tabla accompaniment for renowned artists at prestigious venues across the UK.</p>
-            </div>
-            <div class="performance-item">
-                <h3>All India Radio & Doordarshan</h3>
-                <p class="type">Broadcast Performance</p>
-                <p>Regular featured artist on India's national broadcasting platforms.</p>
-            </div>
-        </div>
-    </section>
+<!-- ================= HIGHLIGHTS ================= -->
+<section style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">At a Glance</span>
+      <h2>A Tradition, Alive</h2>
+      <span class="dash"></span>
+      <p>Four pillars that shape his artistry — from lineage to international stages.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="card">
+        <div class="meta">Lineage</div>
+        <h3>Banaras Gharana</h3>
+        <p>Disciple of Pt. Vijay Shankar Mishra. Versed in Delhi &amp; Ajrada traditions.</p>
+      </div>
+      <div class="card">
+        <div class="meta">Experience</div>
+        <h3>20+ Years</h3>
+        <p>Over two decades of dedicated solo and accompaniment practice.</p>
+      </div>
+      <div class="card">
+        <div class="meta">Honours</div>
+        <h3>Tabla Shree &amp; Shiromani</h3>
+        <p>Twice-awarded Tabla Shree. Recognised as a 'crown jewel' of tabla artistry.</p>
+      </div>
+      <div class="card">
+        <div class="meta">Stages</div>
+        <h3>Edinburgh · London</h3>
+        <p>Edinburgh Festival Fringe 2024 &amp; 2025. Nehru Centre, London.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="contact" class="contact-section">
-        <h2>Get in Touch</h2>
-        <p style="color: var(--text-muted); margin-bottom: 2rem;">Follow on social media or reach out for bookings and collaborations</p>
-        <div class="social-links">
-            <a href="https://www.instagram.com/manmohandogra_offcial" target="_blank" class="social-link">
-                Instagram
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=100010316465657" target="_blank" class="social-link">
-                Facebook
-            </a>
-        </div>
-        <a href="#" id="whatsapp-link" class="contact-button">Contact via WhatsApp</a>
-    </section>
+<!-- ================= FEATURED PERFORMANCES ================= -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Selected Performances</span>
+      <h2>On the World Stage</h2>
+      <span class="dash"></span>
+    </div>
+    <div class="grid grid-3">
+      <article class="card">
+        <div class="meta">2025 · Edinburgh Fringe</div>
+        <h3>Anhad: The Infinite Rhythm</h3>
+        <p>An ambitious solo concert described by critics as a 'sonic tapestry' shifting between the meditative and the electrifying.</p>
+      </article>
+      <article class="card">
+        <div class="meta">London · Nehru Centre</div>
+        <h3>Rhythms of Tradition</h3>
+        <p>A traditional tabla solo in Taal Teentaal at one of London's most prestigious cultural venues.</p>
+      </article>
+      <article class="card">
+        <div class="meta">Ongoing · UK</div>
+        <h3>Kathak × Jazz Fusion</h3>
+        <p>Cross-genre performances uniting the rhythmic bols of Kathak dance with jazz — an original language of rhythm.</p>
+      </article>
+    </div>
+    <div class="text-center mt-4">
+      <a href="performances.html" class="btn">View All Performances</a>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <p>&copy; 2026 Manmohan Dogra. All rights reserved.</p>
-    </footer>
+<!-- ================= PRESS STRIP ================= -->
+<section style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Critical Acclaim</span>
+      <h2>In the Press</h2>
+      <span class="dash"></span>
+    </div>
+    <div class="grid grid-2">
+      <div class="press-card">
+        <blockquote>Technical precision fused with emotional depth, tradition elevated by innovation.</blockquote>
+        <div class="source"><a href="https://news24online.com/entertainment/a-rhythmic-revelation-critiquing-manmohan-dogras-tabla-artistry/628805/" target="_blank" rel="noopener">News24 · A Rhythmic Revelation</a></div>
+      </div>
+      <div class="press-card">
+        <blockquote>His tabla solo was a masterclass in dynamics — moments of delicate restraint gave way to torrents of rhythmic virtuosity.</blockquote>
+        <div class="source"><a href="https://news24online.com/entertainment/a-rhythmic-revelation-critiquing-manmohan-dogras-tabla-artistry/628805/" target="_blank" rel="noopener">News24 · Edinburgh Fringe Review</a></div>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="press.html" class="btn">Read More Press</a>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Load photos from JSON
-        const photos = [
-            { file: "DSC00194.jpg", category: "performance" },
-            { file: "DSC00212.jpg", category: "performance" },
-            { file: "DSC01903 (2025-08-09T20_53_01.929).JPG", category: "performance" },
-            { file: "DSC_6030.jpg", category: "portrait" },
-            { file: "DSC_6032.jpg", category: "portrait" },
-            { file: "DSC_6526.jpg", category: "portrait" },
-            { file: "IMG-20240823-WA0000.jpg", category: "performance" },
-            { file: "IMG_4127.JPG", category: "performance" },
-            { file: "IMG_4200.JPG", category: "performance" },
-            { file: "IMG_4501.JPG", category: "performance" },
-            { file: "Screenshot 2022-11-16 at 17.21.05.PNG", category: "other" },
-            { file: "Z6B_6546.jpg", category: "portrait" },
-            { file: "Z6B_6554.jpg", category: "portrait" },
-            { file: "_DSF9214_Edit.JPG", category: "portrait" }
-        ];
+<!-- ================= CTA ================= -->
+<section class="text-center">
+  <div class="narrow">
+    <span class="caps" style="color:var(--accent)">Invite the Rhythm</span>
+    <h2 style="margin-top:1rem">Book Manmohan for Your Stage</h2>
+    <p>Solo recitals · sitar &amp; Kathak collaborations · Kathak–jazz fusion · university workshops. Enquiries are welcomed from festivals, concert halls, arts institutions and private events worldwide.</p>
+    <div class="btn-row mt-2">
+      <a href="book.html" class="btn btn-primary">Book the Artist</a>
+      <a href="contact.html" class="btn">General Contact</a>
+    </div>
+  </div>
+</section>
 
-        const galleryContainer = document.getElementById('gallery-container');
-        
-        photos.forEach(photo => {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            item.innerHTML = `
-                <img src="${photo.file}" alt="${photo.category}" loading="lazy">
-                <div class="gallery-category">${photo.category}</div>
-            `;
-            galleryContainer.appendChild(item);
-        });
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="socials">
+    <a href="https://www.instagram.com/manmohandogra_offcial" target="_blank" rel="noopener" aria-label="Instagram">Ig</a>
+    <a href="https://www.facebook.com/profile.php?id=100010316465657" target="_blank" rel="noopener" aria-label="Facebook">Fb</a>
+    <a href="#" data-whatsapp="link" target="_blank" rel="noopener" aria-label="WhatsApp">Wa</a>
+    <a href="#" data-email="link" aria-label="Email">@</a>
+  </div>
+  <p class="copy">Manmohan Dogra · Tabla Artist · United Kingdom · Banaras Gharana</p>
+  <p style="margin-top:0.5rem;font-size:0.8rem">&copy; <span id="yr"></span> Manmohan Dogra. All rights reserved.</p>
+</footer>
 
-        // Obfuscated WhatsApp link (JavaScript only)
-        (function() {
-            const parts = ['+', '44', '758', '623', '6182'];
-            const number = parts.join('');
-            const link = document.getElementById('whatsapp-link');
-            link.href = 'https://wa.me/' + number;
-        })();
-    </script>
+<!-- ================= THEME SWITCHER ================= -->
+<div class="theme-switch" aria-label="Theme switcher">
+  <span class="label">Theme</span>
+  <button data-set="royal-banaras" title="Royal Banaras"></button>
+  <button data-set="editorial-raga" title="Editorial Raga"></button>
+  <button data-set="midnight-concert" title="Midnight Concert"></button>
+  <button data-set="temple-saffron" title="Temple Saffron"></button>
+</div>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>
