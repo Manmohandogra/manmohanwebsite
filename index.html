@@ -3,71 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Manmohan Dogra — Design Previews</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;background:#1a1410;color:#f5ede0;min-height:100vh;padding:4rem 2rem;background-image:radial-gradient(circle at 20% 30%,rgba(201,169,97,0.08),transparent 50%),radial-gradient(circle at 80% 70%,rgba(139,30,30,0.1),transparent 50%)}
-.container{max-width:1400px;margin:0 auto}
-.intro{text-align:center;margin-bottom:4rem}
-.om{font-size:3rem;color:#c9a961;margin-bottom:1rem}
-h1{font-family:'Cinzel',serif;font-size:3rem;letter-spacing:3px;margin-bottom:1rem;color:#fff}
-.sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.4rem;color:#c9a961;margin-bottom:0.5rem}
-.instruct{color:#b8a992;max-width:600px;margin:2rem auto 0;line-height:1.7}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:3rem}
-.card{background:linear-gradient(145deg,#24201c,#1a1410);border:1px solid rgba(201,169,97,0.2);border-radius:12px;padding:2.5rem 2rem;text-decoration:none;color:inherit;transition:all 0.4s;position:relative;overflow:hidden}
-.card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#c9a961,#8b1e1e,#c9a961)}
-.card:hover{transform:translateY(-8px);border-color:#c9a961;box-shadow:0 20px 40px rgba(0,0,0,0.4)}
-.card .num{font-family:'Cinzel',serif;color:#c9a961;opacity:0.5;font-size:0.9rem;letter-spacing:3px;margin-bottom:1rem}
-.card h2{font-family:'Cormorant Garamond',serif;font-size:2rem;margin-bottom:0.5rem;color:#fff}
-.card .desc{color:#a89885;font-size:0.95rem;line-height:1.6;margin-bottom:1.5rem}
-.card .palette{display:flex;gap:6px;margin-bottom:1.5rem}
-.swatch{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,0.1)}
-.cta{font-family:'Cinzel',serif;font-size:0.85rem;letter-spacing:2px;color:#c9a961;text-transform:uppercase}
-footer{text-align:center;margin-top:5rem;padding-top:2rem;border-top:1px solid rgba(201,169,97,0.15);color:#6a5f52;font-size:0.85rem}
-.hello-banner{position:fixed;top:0;left:0;right:0;background:linear-gradient(90deg,#c9a961,#8b1e1e);color:#fff;padding:1rem;text-align:center;font-weight:bold;z-index:9999;box-shadow:0 4px 12px rgba(0,0,0,0.3)}
-</style>
+<title>Manmohan Dogra — Tabla Virtuoso | Banaras Gharana</title>
+<meta name="description" content="Manmohan Dogra, Tabla Virtuoso of the Banaras Gharana. Bridging continents through the ancient language of rhythm — based in the United Kingdom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-<div class="hello-banner">👋 Hello World! Preview Branch is Live</div>
-<div class="container" style="margin-top:60px;">
-<div class="intro">
-<div class="om">ॐ</div>
-<h1>MANMOHAN DOGRA</h1>
-<div class="sub">Four Design Explorations for Your Website</div>
-<p class="instruct">Each demo presents a distinct visual interpretation of your artistic identity. Click through to explore — and tell me which elements speak to you. We can mix, match, and refine before going live.</p>
+
+<!-- ================= NAV ================= -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><span class="om">ॐ</span> MANMOHAN DOGRA</a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="performances.html">Performances</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="videos.html">Videos</a></li>
+      <li><a href="press.html">Press</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="book.html">Book</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-image" style="background-image:url('DSC00212.jpg')"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="om">ॐ</span>
+    <div class="hero-ornament"><span class="line"></span><span class="caps">Banaras Gharana</span><span class="line"></span></div>
+    <h1>MANMOHAN DOGRA</h1>
+    <p class="sub">Tabla Virtuoso</p>
+    <p class="tagline">Bridging continents through the ancient language of rhythm — a disciple of Pt. Vijay Shankar Mishra carrying more than two decades of the Banaras tradition to stages across the United Kingdom and beyond.</p>
+    <div class="btn-row">
+      <a href="book.html" class="btn btn-primary">Book the Artist</a>
+      <a href="videos.html" class="btn">Watch Performances</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= ABOUT SNAPSHOT ================= -->
+<section>
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <span class="caps" style="color:var(--accent)">A Rhythmic Revelation</span>
+        <h2 style="margin-top:0.8rem">A Voice of the Banaras Gharana</h2>
+        <p>Rooted in the revered Banaras Gharana and shaped by two decades of dedicated practice, Manmohan Dogra is one of the most compelling voices in Hindustani classical percussion today. His sound carries the lyrical expressiveness of Banaras Baaj — every <em>dha</em>, <em>tun</em>, and <em>na</em> rings with crystalline precision.</p>
+        <p>A disciple of Pt. Vijay Shankar Mishra, he has further broadened his rhythmic palette through study of the Delhi and Ajrada Gharanas — one of the few artists today who fluently speaks the language of multiple tabla traditions.</p>
+        <a href="about.html" class="btn" style="margin-top:1rem">Read Full Biography</a>
+      </div>
+      <div>
+        <img src="DSC_6030.jpg" alt="Manmohan Dogra portrait" style="border-radius:4px;border:1px solid var(--border);aspect-ratio:3/4;object-fit:cover;width:100%">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PULL QUOTE ================= -->
+<section style="padding-top:0">
+  <div class="container">
+    <blockquote class="pull-quote">
+      Playing the tabla is not just about mastering compositions but about developing a true sense of rhythm that can travel across traditions. Fusion is not about replacing one form with another; it is about blending them respectfully and finding a shared voice.
+      <cite>— Manmohan Dogra</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ================= HIGHLIGHTS ================= -->
+<section style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">At a Glance</span>
+      <h2>A Tradition, Alive</h2>
+      <span class="dash"></span>
+      <p>Four pillars that shape his artistry — from lineage to international stages.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="card">
+        <div class="meta">Lineage</div>
+        <h3>Banaras Gharana</h3>
+        <p>Disciple of Pt. Vijay Shankar Mishra. Versed in Delhi &amp; Ajrada traditions.</p>
+      </div>
+      <div class="card">
+        <div class="meta">Experience</div>
+        <h3>20+ Years</h3>
+        <p>Over two decades of dedicated solo and accompaniment practice.</p>
+      </div>
+      <div class="card">
+        <div class="meta">Honours</div>
+        <h3>Tabla Shree &amp; Shiromani</h3>
+        <p>Twice-awarded Tabla Shree. Recognised as a 'crown jewel' of tabla artistry.</p>
+      </div>
+      <div class="card">
+        <div class="meta">Stages</div>
+        <h3>Edinburgh · London</h3>
+        <p>Edinburgh Festival Fringe 2024 &amp; 2025. Nehru Centre, London.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURED PERFORMANCES ================= -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Selected Performances</span>
+      <h2>On the World Stage</h2>
+      <span class="dash"></span>
+    </div>
+    <div class="grid grid-3">
+      <article class="card">
+        <div class="meta">2025 · Edinburgh Fringe</div>
+        <h3>Anhad: The Infinite Rhythm</h3>
+        <p>An ambitious solo concert described by critics as a 'sonic tapestry' shifting between the meditative and the electrifying.</p>
+      </article>
+      <article class="card">
+        <div class="meta">London · Nehru Centre</div>
+        <h3>Rhythms of Tradition</h3>
+        <p>A traditional tabla solo in Taal Teentaal at one of London's most prestigious cultural venues.</p>
+      </article>
+      <article class="card">
+        <div class="meta">Ongoing · UK</div>
+        <h3>Kathak × Jazz Fusion</h3>
+        <p>Cross-genre performances uniting the rhythmic bols of Kathak dance with jazz — an original language of rhythm.</p>
+      </article>
+    </div>
+    <div class="text-center mt-4">
+      <a href="performances.html" class="btn">View All Performances</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRESS STRIP ================= -->
+<section style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Critical Acclaim</span>
+      <h2>In the Press</h2>
+      <span class="dash"></span>
+    </div>
+    <div class="grid grid-2">
+      <div class="press-card">
+        <blockquote>Technical precision fused with emotional depth, tradition elevated by innovation.</blockquote>
+        <div class="source"><a href="https://news24online.com/entertainment/a-rhythmic-revelation-critiquing-manmohan-dogras-tabla-artistry/628805/" target="_blank" rel="noopener">News24 · A Rhythmic Revelation</a></div>
+      </div>
+      <div class="press-card">
+        <blockquote>His tabla solo was a masterclass in dynamics — moments of delicate restraint gave way to torrents of rhythmic virtuosity.</blockquote>
+        <div class="source"><a href="https://news24online.com/entertainment/a-rhythmic-revelation-critiquing-manmohan-dogras-tabla-artistry/628805/" target="_blank" rel="noopener">News24 · Edinburgh Fringe Review</a></div>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="press.html" class="btn">Read More Press</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="text-center">
+  <div class="narrow">
+    <span class="caps" style="color:var(--accent)">Invite the Rhythm</span>
+    <h2 style="margin-top:1rem">Book Manmohan for Your Stage</h2>
+    <p>Solo recitals · sitar &amp; Kathak collaborations · Kathak–jazz fusion · university workshops. Enquiries are welcomed from festivals, concert halls, arts institutions and private events worldwide.</p>
+    <div class="btn-row mt-2">
+      <a href="book.html" class="btn btn-primary">Book the Artist</a>
+      <a href="contact.html" class="btn">General Contact</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="socials">
+    <a href="https://www.instagram.com/manmohandogra_offcial" target="_blank" rel="noopener" aria-label="Instagram">Ig</a>
+    <a href="https://www.facebook.com/profile.php?id=100010316465657" target="_blank" rel="noopener" aria-label="Facebook">Fb</a>
+    <a href="#" data-whatsapp="link" target="_blank" rel="noopener" aria-label="WhatsApp">Wa</a>
+    <a href="#" data-email="link" aria-label="Email">@</a>
+  </div>
+  <p class="copy">Manmohan Dogra · Tabla Artist · United Kingdom · Banaras Gharana</p>
+  <p style="margin-top:0.5rem;font-size:0.8rem">&copy; <span id="yr"></span> Manmohan Dogra. All rights reserved.</p>
+</footer>
+
+<!-- ================= THEME SWITCHER ================= -->
+<div class="theme-switch" aria-label="Theme switcher">
+  <span class="label">Theme</span>
+  <button data-set="royal-banaras" title="Royal Banaras"></button>
+  <button data-set="editorial-raga" title="Editorial Raga"></button>
+  <button data-set="midnight-concert" title="Midnight Concert"></button>
+  <button data-set="temple-saffron" title="Temple Saffron"></button>
 </div>
-<div class="grid">
-<a class="card" href="demo1-royal-banaras/index.html">
-<div class="num">DESIGN 01</div>
-<h2>Royal Banaras</h2>
-<div class="desc">Regal Mughal-inspired ornamentation. Deep burgundy and antique gold. Ornate borders, devanagari accents, classical arches. Evokes the grandeur of courtly tradition.</div>
-<div class="palette"><div class="swatch" style="background:#3a0e0e"></div><div class="swatch" style="background:#c9a961"></div><div class="swatch" style="background:#f5ede0"></div><div class="swatch" style="background:#8b1e1e"></div></div>
-<div class="cta">Explore →</div>
-</a>
-<a class="card" href="demo2-editorial-raga/index.html">
-<div class="num">DESIGN 02</div>
-<h2>Editorial Raga</h2>
-<div class="desc">Minimalist magazine aesthetic. Cream, ink, and muted crimson. Large photography, elegant typography, asymmetric layouts. The feel of a prestigious arts journal.</div>
-<div class="palette"><div class="swatch" style="background:#fdfaf4"></div><div class="swatch" style="background:#0f0f0f"></div><div class="swatch" style="background:#8b2635"></div><div class="swatch" style="background:#c4b8a4"></div></div>
-<div class="cta">Explore →</div>
-</a>
-<a class="card" href="demo3-temple-saffron/index.html">
-<div class="num">DESIGN 03</div>
-<h2>Temple Saffron</h2>
-<div class="desc">Sacred and warm. Saffron, terracotta, marigold, temple green. Lotus motifs, mandala backgrounds, devanagari script. Invokes the spiritual heart of Indian classical tradition.</div>
-<div class="palette"><div class="swatch" style="background:#cd6f2c"></div><div class="swatch" style="background:#8b3a1a"></div><div class="swatch" style="background:#3d5c3d"></div><div class="swatch" style="background:#fefaf0"></div></div>
-<div class="cta">Explore →</div>
-</a>
-<a class="card" href="demo4-midnight-concert/index.html">
-<div class="num">DESIGN 04</div>
-<h2>Midnight Concert</h2>
-<div class="desc">Cinematic and modern. Deep black, spotlight gold, warm ivory. Photos as hero elements, dramatic gradients, clean type. The feel of a concert hall after dark.</div>
-<div class="palette"><div class="swatch" style="background:#0a0808"></div><div class="swatch" style="background:#d4a547"></div><div class="swatch" style="background:#f5e9d0"></div><div class="swatch" style="background:#1f1a14"></div></div>
-<div class="cta">Explore →</div>
-</a>
-</div>
-<footer>Preview build · Not the live site · Provide feedback and we'll refine before publishing</footer>
-</div>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>

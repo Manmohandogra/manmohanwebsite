@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — Manmohan Dogra | Tabla Virtuoso</title>
+<meta name="description" content="Contact tabla virtuoso Manmohan Dogra — for bookings, press enquiries, workshops and collaborations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><span class="om">ॐ</span> MANMOHAN DOGRA</a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="performances.html">Performances</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="videos.html">Videos</a></li>
+      <li><a href="press.html">Press</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="book.html">Book</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <span class="eyebrow">Get in Touch</span>
+  <h1>Contact</h1>
+  <p style="max-width:640px;margin:1rem auto 0;color:var(--text-muted)" class="serif">For bookings, collaborations, press &amp; media enquiries, and workshop programmes.</p>
+</header>
+
+<section>
+  <div class="container">
+
+    <div class="grid grid-3">
+
+      <article class="card">
+        <div class="meta">Direct</div>
+        <h3>Email</h3>
+        <p>Click the button below to open your mail client — the address is revealed only on demand to protect it from web crawlers.</p>
+        <a href="#" data-email="link" class="btn" style="margin-top:0.5rem">Reveal &amp; Email</a>
+      </article>
+
+      <article class="card">
+        <div class="meta">Messaging</div>
+        <h3>WhatsApp</h3>
+        <p>Fast responses for time-sensitive enquiries — tap below to open a WhatsApp chat.</p>
+        <a href="#" data-whatsapp="link" target="_blank" rel="noopener" class="btn" style="margin-top:0.5rem">Open WhatsApp</a>
+      </article>
+
+      <article class="card">
+        <div class="meta">Social</div>
+        <h3>Instagram &amp; Facebook</h3>
+        <p>Follow for concert announcements, studio clips and behind-the-scenes moments.</p>
+        <div style="display:flex;gap:0.8rem;margin-top:1rem">
+          <a href="https://www.instagram.com/manmohandogra_offcial" target="_blank" rel="noopener" class="btn">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=100010316465657" target="_blank" rel="noopener" class="btn">Facebook</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="ornament mt-4"><span>ॐ</span></div>
+
+    <div class="section-head">
+      <span class="eyebrow">Send a Message</span>
+      <h2>Write to Manmohan</h2>
+      <span class="dash"></span>
+      <p>For general enquiries, media requests, or anything that doesn't fit the booking form.</p>
+    </div>
+
+    <form class="form" data-form="contact" method="POST">
+      <input type="hidden" name="_subject" value="New Message — manmohandogra.com">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
+
+      <div>
+        <label for="f-name">Your Name</label>
+        <input id="f-name" name="name" type="text" required placeholder="Full name">
+      </div>
+      <div>
+        <label for="f-email">Your Email</label>
+        <input id="f-email" name="email" type="email" required placeholder="you@example.com">
+      </div>
+      <div>
+        <label for="f-subject">Subject</label>
+        <input id="f-subject" name="subject" type="text" required placeholder="What is this about?">
+      </div>
+      <div>
+        <label for="f-msg">Message</label>
+        <textarea id="f-msg" name="message" required placeholder="Your message…"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+
+    <p style="text-align:center;color:var(--text-dim);font-size:0.85rem;margin-top:2rem">For formal booking requests with full event details, please use the <a href="book.html" style="color:var(--accent)">booking form</a>.</p>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="socials">
+    <a href="https://www.instagram.com/manmohandogra_offcial" target="_blank" rel="noopener">Ig</a>
+    <a href="https://www.facebook.com/profile.php?id=100010316465657" target="_blank" rel="noopener">Fb</a>
+    <a href="#" data-whatsapp="link" target="_blank" rel="noopener">Wa</a>
+    <a href="#" data-email="link">@</a>
+  </div>
+  <p class="copy">Manmohan Dogra · Tabla Artist · United Kingdom · Banaras Gharana</p>
+  <p style="margin-top:0.5rem;font-size:0.8rem">&copy; <span id="yr"></span> Manmohan Dogra. All rights reserved.</p>
+</footer>
+
+<div class="theme-switch">
+  <span class="label">Theme</span>
+  <button data-set="royal-banaras"></button>
+  <button data-set="editorial-raga"></button>
+  <button data-set="midnight-concert"></button>
+  <button data-set="temple-saffron"></button>
+</div>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

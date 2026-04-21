@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gallery — Manmohan Dogra | Tabla Virtuoso</title>
+<meta name="description" content="Performance and portrait photography of tabla virtuoso Manmohan Dogra.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><span class="om">ॐ</span> MANMOHAN DOGRA</a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="performances.html">Performances</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="videos.html">Videos</a></li>
+      <li><a href="press.html">Press</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="book.html">Book</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <span class="eyebrow">The Visual Archive</span>
+  <h1>Gallery</h1>
+  <p style="max-width:640px;margin:1rem auto 0;color:var(--text-muted)" class="serif">Portraits and performance moments. Click any image to view full size.</p>
+</header>
+
+<section>
+  <div class="container">
+
+    <div class="gallery-filter">
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="performance">Performance</button>
+      <button data-filter="portrait">Portrait</button>
+      <button data-filter="other">Other</button>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item wide" data-category="performance" data-full="DSC00194.jpg">
+        <img src="DSC00194.jpg" alt="Live performance" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="performance" data-full="DSC00212.jpg">
+        <img src="DSC00212.jpg" alt="Live performance" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="performance" data-full="DSC01903 (2025-08-09T20_53_01.929).JPG">
+        <img src="DSC01903 (2025-08-09T20_53_01.929).JPG" alt="Edinburgh Fringe 2025" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="portrait" data-full="DSC_6030.jpg">
+        <img src="DSC_6030.jpg" alt="Portrait" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="portrait" data-full="DSC_6032.jpg">
+        <img src="DSC_6032.jpg" alt="Portrait" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="portrait" data-full="DSC_6526.jpg">
+        <img src="DSC_6526.jpg" alt="Portrait" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="performance" data-full="IMG-20240823-WA0000.jpg">
+        <img src="IMG-20240823-WA0000.jpg" alt="Performance" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="performance" data-full="IMG_4127.JPG">
+        <img src="IMG_4127.JPG" alt="Performance" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="performance" data-full="IMG_4200.JPG">
+        <img src="IMG_4200.JPG" alt="Performance" loading="lazy">
+      </div>
+      <div class="gallery-item wide" data-category="performance" data-full="IMG_4501.JPG">
+        <img src="IMG_4501.JPG" alt="Performance" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="other" data-full="Screenshot 2022-11-16 at 17.21.05.PNG">
+        <img src="Screenshot 2022-11-16 at 17.21.05.PNG" alt="Press moment" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="portrait" data-full="Z6B_6546.jpg">
+        <img src="Z6B_6546.jpg" alt="Portrait" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="portrait" data-full="Z6B_6554.jpg">
+        <img src="Z6B_6554.jpg" alt="Portrait" loading="lazy">
+      </div>
+      <div class="gallery-item" data-category="portrait" data-full="_DSF9214_Edit.JPG">
+        <img src="_DSF9214_Edit.JPG" alt="Portrait" loading="lazy">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="socials">
+    <a href="https://www.instagram.com/manmohandogra_offcial" target="_blank" rel="noopener">Ig</a>
+    <a href="https://www.facebook.com/profile.php?id=100010316465657" target="_blank" rel="noopener">Fb</a>
+    <a href="#" data-whatsapp="link" target="_blank" rel="noopener">Wa</a>
+    <a href="#" data-email="link">@</a>
+  </div>
+  <p class="copy">Manmohan Dogra · Tabla Artist · United Kingdom · Banaras Gharana</p>
+  <p style="margin-top:0.5rem;font-size:0.8rem">&copy; <span id="yr"></span> Manmohan Dogra. All rights reserved.</p>
+</footer>
+
+<div class="theme-switch">
+  <span class="label">Theme</span>
+  <button data-set="royal-banaras"></button>
+  <button data-set="editorial-raga"></button>
+  <button data-set="midnight-concert"></button>
+  <button data-set="temple-saffron"></button>
+</div>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
