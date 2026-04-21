@@ -109,7 +109,7 @@ body{
 }
 .bg-slide{
   position:absolute;inset:0;
-  background-size:cover;background-position:center;
+  background-size:cover;background-position:center top;
   opacity:0;
   transition:opacity 2s ease-in-out;
   filter:saturate(0.85) contrast(1.05);
