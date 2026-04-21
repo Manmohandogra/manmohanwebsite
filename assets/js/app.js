@@ -45,6 +45,9 @@
       if(href === path || (path === '' && href === 'index.html')) a.classList.add('active');
     });
 
+    /* ---------- Page background slideshow ---------- */
+    setupPageBg();
+
     /* ---------- Contact reveal (obfuscation) ---------- */
     revealContacts();
 
@@ -57,6 +60,47 @@
     /* ---------- Booking / contact form ---------- */
     setupForm();
   });
+
+  /* ---------- Page background slideshow ---------- */
+  function setupPageBg(){
+    var el = document.getElementById('page-bg');
+    if(!el) return;
+
+    var photos = [
+      'DSC00194.jpg',
+      'DSC00212.jpg',
+      'DSC01903 (2025-08-09T20_53_01.929).JPG',
+      'DSC_6030.jpg',
+      'DSC_6032.jpg',
+      'DSC_6526.jpg',
+      'IMG-20240823-WA0000.jpg',
+      'IMG_4127.JPG',
+      'IMG_4200.JPG',
+      'IMG_4501.JPG',
+      'Z6B_6546.jpg',
+      'Z6B_6554.jpg',
+      '_DSF9214_Edit.JPG'
+    ];
+
+    var slides = photos.map(function(src){
+      var slide = document.createElement('div');
+      slide.className = 'bg-slide';
+      slide.style.backgroundImage = 'url("' + src + '")';
+      el.appendChild(slide);
+      return slide;
+    });
+
+    photos.forEach(function(src){ new Image().src = src; });
+
+    var current = 0;
+    slides[0].classList.add('active');
+
+    setInterval(function(){
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 6000);
+  }
 
   function setupForm(){
     document.querySelectorAll('form[data-form]').forEach(function(form){
