@@ -7,7 +7,8 @@
   'use strict';
 
   /* ---------- Theme switcher ---------- */
-  var THEMES = ['royal-banaras','editorial-raga','midnight-concert','temple-saffron'];
+  var THEMES = ['royal-banaras','editorial-raga','midnight-concert','temple-saffron',
+                'indigo-monsoon','peacock-teal','maharaja-dusk','desert-rose','arctic-noir'];
   var STORED = (function(){ try{ return localStorage.getItem('md-theme'); }catch(e){ return null; } })();
   var initial = THEMES.indexOf(STORED) >= 0 ? STORED : 'royal-banaras';
   document.documentElement.setAttribute('data-theme', initial);
@@ -85,7 +86,17 @@
     var slides = photos.map(function(src){
       var slide = document.createElement('div');
       slide.className = 'bg-slide';
-      slide.style.backgroundImage = 'url("' + src + '")';
+
+      var blur = document.createElement('div');
+      blur.className = 'bg-blur';
+      blur.style.backgroundImage = 'url("' + src + '")';
+
+      var sharp = document.createElement('div');
+      sharp.className = 'bg-sharp';
+      sharp.style.backgroundImage = 'url("' + src + '")';
+
+      slide.appendChild(blur);
+      slide.appendChild(sharp);
       el.appendChild(slide);
       return slide;
     });
