@@ -8,7 +8,8 @@
 
   /* ---------- Theme switcher ---------- */
   var THEMES = ['royal-banaras','editorial-raga','midnight-concert','temple-saffron',
-                'indigo-monsoon','peacock-teal','maharaja-dusk','desert-rose','arctic-noir'];
+                'indigo-monsoon','peacock-teal','maharaja-dusk','desert-rose','arctic-noir',
+                'varanasi-dusk','jaipur-rose','deccan-emerald','kashmiri-winter'];
   var STORED = (function(){ try{ return localStorage.getItem('md-theme'); }catch(e){ return null; } })();
   var initial = THEMES.indexOf(STORED) >= 0 ? STORED : 'royal-banaras';
   document.documentElement.setAttribute('data-theme', initial);
@@ -63,37 +64,53 @@
   });
 
   /* ---------- Page background slideshow ---------- */
+  // Each photo: { file, category, focal }
+  // focal = background-position string; chosen per-photo so face / subject is never cropped.
+  var PHOTOS = [
+    { file: 'DSC00194.jpg',                             category: 'performance', focal: 'center 38%' },
+    { file: 'DSC00212.jpg',                             category: 'performance', focal: 'center 35%' },
+    { file: 'DSC01903 (2025-08-09T20_53_01.929).JPG',   category: 'performance', focal: 'center 25%' },
+    { file: 'DSC_6030.jpg',                             category: 'portrait',    focal: 'center 28%' },
+    { file: 'DSC_6032.jpg',                             category: 'portrait',    focal: 'center 28%' },
+    { file: 'DSC_6526.jpg',                             category: 'portrait',    focal: 'center 28%' },
+    { file: 'IMG-20240823-WA0000.jpg',                  category: 'performance', focal: 'center 40%' },
+    { file: 'IMG_4127.JPG',                             category: 'performance', focal: 'center 40%' },
+    { file: 'IMG_4200.JPG',                             category: 'performance', focal: 'center 40%' },
+    { file: 'IMG_4501.JPG',                             category: 'performance', focal: 'center 40%' },
+    { file: 'Z6B_6546.jpg',                             category: 'portrait',    focal: 'center 28%' },
+    { file: 'Z6B_6554.jpg',                             category: 'portrait',    focal: 'center 35%' },
+    { file: '_DSF9214_Edit.JPG',                        category: 'portrait',    focal: 'center 35%' }
+  ];
+
   function setupPageBg(){
     var el = document.getElementById('page-bg');
     if(!el) return;
 
-    var photos = [
-      'DSC00194.jpg',
-      'DSC00212.jpg',
-      'DSC01903 (2025-08-09T20_53_01.929).JPG',
-      'DSC_6030.jpg',
-      'DSC_6032.jpg',
-      'DSC_6526.jpg',
-      'IMG-20240823-WA0000.jpg',
-      'IMG_4127.JPG',
-      'IMG_4200.JPG',
-      'IMG_4501.JPG',
-      'Z6B_6546.jpg',
-      'Z6B_6554.jpg',
-      '_DSF9214_Edit.JPG'
-    ];
+    var wanted = (el.getAttribute('data-bg-category') || 'all').toLowerCase();
+    var list = PHOTOS.filter(function(p){
+      if(wanted === 'all') return true;
+      return wanted.split(',').indexOf(p.category) >= 0;
+    });
+    if(!list.length) list = PHOTOS;
 
-    var slides = photos.map(function(src){
+    // Shuffle so consecutive visits feel fresh
+    for(var i = list.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = list[i]; list[i] = list[j]; list[j] = tmp;
+    }
+
+    var slides = list.map(function(p){
       var slide = document.createElement('div');
       slide.className = 'bg-slide';
+      slide.style.setProperty('--bg-focal', p.focal);
 
       var blur = document.createElement('div');
       blur.className = 'bg-blur';
-      blur.style.backgroundImage = 'url("' + src + '")';
+      blur.style.backgroundImage = 'url("' + p.file + '")';
 
       var sharp = document.createElement('div');
       sharp.className = 'bg-sharp';
-      sharp.style.backgroundImage = 'url("' + src + '")';
+      sharp.style.backgroundImage = 'url("' + p.file + '")';
 
       slide.appendChild(blur);
       slide.appendChild(sharp);
@@ -101,7 +118,7 @@
       return slide;
     });
 
-    photos.forEach(function(src){ new Image().src = src; });
+    list.forEach(function(p){ new Image().src = p.file; });
 
     var current = 0;
     slides[0].classList.add('active');
