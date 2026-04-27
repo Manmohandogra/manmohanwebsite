@@ -759,3 +759,43 @@ section{
   .event-listing-image{min-height:220px}
   .event-listing-body{flex-direction:column;gap:1.5rem;padding:1.8rem}
 }
+
+/* ---------- Event detail grid (poster + about) ---------- */
+.event-detail-grid{
+  display:grid;grid-template-columns:1fr 1.5fr;gap:3rem;
+  margin-top:3rem;align-items:start;
+}
+.event-poster{display:flex;flex-direction:column;align-items:center;gap:1rem}
+.event-poster-frame{
+  width:100%;aspect-ratio:2/3;
+  background:repeating-linear-gradient(45deg,
+    color-mix(in srgb,var(--bg-alt) 80%,transparent) 0,
+    color-mix(in srgb,var(--bg-alt) 80%,transparent) 14px,
+    color-mix(in srgb,var(--bg) 80%,transparent) 14px,
+    color-mix(in srgb,var(--bg) 80%,transparent) 28px);
+  border:2px solid var(--accent);border-radius:6px;
+  position:relative;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:0.5rem;
+  box-shadow:var(--shadow);
+}
+.event-poster-frame .poster-label{
+  font-family:var(--font-head);font-size:0.85rem;letter-spacing:4px;
+  text-transform:uppercase;color:var(--accent);
+  background:var(--bg);padding:0.6rem 1.4rem;
+  border:1px solid var(--accent);border-radius:30px;
+}
+.event-poster-frame .poster-note{
+  font-family:var(--font-serif);font-style:italic;
+  font-size:0.95rem;color:var(--text-muted);
+}
+.event-poster-caption{
+  font-size:0.85rem;color:var(--text-dim);text-align:center;
+  font-style:italic;margin:0;
+}
+.event-about h3{font-family:var(--font-head);font-weight:700;color:var(--accent);margin-bottom:1rem}
+.event-about p{font-size:1.02rem;line-height:1.75}
+@media (max-width:800px){
+  .event-detail-grid{grid-template-columns:1fr;gap:2.5rem}
+  .event-poster-frame{max-width:280px;margin:0 auto}
+}
