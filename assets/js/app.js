@@ -7,9 +7,8 @@
   'use strict';
 
   /* ---------- Theme switcher ---------- */
-  var THEMES = ['royal-banaras','editorial-raga','midnight-concert','temple-saffron',
-                'indigo-monsoon','peacock-teal','maharaja-dusk','desert-rose','arctic-noir',
-                'varanasi-dusk','jaipur-rose','deccan-emerald','kashmiri-winter'];
+  var THEMES = ['royal-banaras','varanasi-dusk','temple-saffron',
+                'midnight-concert','editorial-raga','peacock-teal'];
   var STORED = (function(){ try{ return localStorage.getItem('md-theme'); }catch(e){ return null; } })();
   var initial = THEMES.indexOf(STORED) >= 0 ? STORED : 'royal-banaras';
   document.documentElement.setAttribute('data-theme', initial);
