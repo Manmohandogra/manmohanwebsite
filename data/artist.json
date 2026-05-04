@@ -4,7 +4,7 @@
   "tagline": "Bridging Continents Through the Ancient Language of Rhythm",
   "gharana": "Banaras Gharana (with knowledge of Delhi & Ajrada)",
   "basedIn": "United Kingdom",
-  "guru": "Pt. Vijay Shankar Mishra",
+  "guru": "SNA Pt. Vijay Shankar Mishra",
   "experience": "20+ Years",
   "instrument": "Tabla (Solo & Accompaniment)",
   "education": [
@@ -24,21 +24,20 @@
   "quote": "Playing the tabla is not just about mastering compositions but about developing a true sense of rhythm that can travel across traditions. Fusion is not about replacing one form with another; it is about blending them respectfully and finding a shared voice.",
   "influences": [
     "Ustad Zakir Hussain (late)",
-    "Era Dogra (elder sister, Kathak exponent)",
     "Pt. Dr. Prabhakar Kashyap (vocal training)"
   ],
   "awards": [
     {
       "name": "Tabla Shree Award",
-      "description": "Awarded twice — one of the most coveted recognitions in Indian classical percussion, honouring exceptional mastery and contribution to the tabla tradition."
+      "description": "Awarded twice \u2014 one of the most coveted recognitions in Indian classical percussion, honouring exceptional mastery and contribution to the tabla tradition."
     },
     {
       "name": "Tabla Shiromani Award",
       "description": "Recognising Manmohan as a 'crown jewel' of tabla artistry, this distinction celebrates his outstanding artistry, dedication, and service to Hindustani music."
     },
     {
-      "name": "Critical Acclaim — Edinburgh Fringe",
-      "description": "Widely praised by critics for performances described as 'a rhythmic revelation' — technical precision fused with profound emotional depth."
+      "name": "Critical Acclaim \u2014 Edinburgh Fringe",
+      "description": "Widely praised by critics for performances described as 'a rhythmic revelation' \u2014 technical precision fused with profound emotional depth."
     }
   ],
   "performances": [
@@ -49,12 +48,12 @@
     },
     {
       "event": "Edinburgh Festival Fringe 2025",
-      "type": "Concert — 'Anhad: The Infinite Rhythm'",
+      "type": "Concert \u2014 'Anhad: The Infinite Rhythm'",
       "description": "Returned to the Fringe with this ambitious concert, described by critics as a 'sonic tapestry' shifting between the meditative and the electrifying."
     },
     {
       "event": "Nehru Centre, London",
-      "type": "Solo Concert — 'Rhythms of Tradition: A Tabla Journey'",
+      "type": "Solo Concert \u2014 'Rhythms of Tradition: A Tabla Journey'",
       "description": "Presented a traditional tabla solo in Taal Teentaal at this prestigious cultural venue, showcasing the full breadth of the Banaras Gharana's classical repertoire."
     },
     {
@@ -63,7 +62,7 @@
       "description": "Conducted educational workshops at universities across the UK, bringing Indian classical percussion to younger and wider audiences."
     },
     {
-      "event": "Fusion Concerts — Kathak & Jazz",
+      "event": "Fusion Concerts \u2014 Kathak & Jazz",
       "type": "Fusion Performance",
       "description": "Pioneered cross-genre performances uniting the rhythmic bols of Indian classical Kathak dance with jazz, creating an original 'language of rhythm' for multicultural UK audiences."
     },
@@ -73,5 +72,5 @@
       "description": "In an ongoing creative partnership with Edinburgh-based sitarist David Beards, Manmohan redefines the tabla's role as an equal voice in rhythmic dialogue with the sitar."
     }
   ],
-  "artisticPhilosophy": "What distinguishes Manmohan Dogra beyond his technical mastery is his capacity to make every performance a journey. Critics describe a 'quiet intensity' on stage — his improvisations unfold not as displays of virtuosity, but as narratives: each kaida a conversation, each rela an emotional arc. Manmohan is equally devoted to the future of his art as to its past, investing in the next generation through workshops in schools and universities across India and the UK."
+  "artisticPhilosophy": "What distinguishes Manmohan Dogra beyond his technical mastery is his capacity to make every performance a journey. Critics describe a 'quiet intensity' on stage \u2014 his improvisations unfold not as displays of virtuosity, but as narratives: each kaida a conversation, each rela an emotional arc. Manmohan is equally devoted to the future of his art as to its past, investing in the next generation through workshops in schools and universities across India and the UK."
 }
