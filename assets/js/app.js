@@ -77,8 +77,7 @@
     { file: 'IMG_4200.JPG',                             category: 'performance', focal: 'center 40%' },
     { file: 'IMG_4501.JPG',                             category: 'performance', focal: 'center 40%' },
     { file: 'Z6B_6546.jpg',                             category: 'portrait',    focal: 'center 28%' },
-    { file: 'Z6B_6554.jpg',                             category: 'portrait',    focal: 'center 35%' },
-    { file: '_DSF9214_Edit.JPG',                        category: 'portrait',    focal: 'center 35%' }
+    { file: 'Z6B_6554.jpg',                             category: 'portrait',    focal: 'center 35%' }
   ];
 
   function setupPageBg(){
