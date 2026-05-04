@@ -141,10 +141,9 @@
   /* ---------- Private contact data — decoded on demand ---------- */
   // Values stored as reversed strings + base64 fragments to avoid plain-text scraping.
   function decodeContact(){
-    var emailParts = ['moc.liamg','@','kuargodnahom','nam'];
-    // reverse "manmohandograuk@gmail.com"
-    var email = emailParts.map(function(s){ return s.split('').reverse().join(''); }).join('');
-    // WhatsApp number assembled from integer fragments
+    // Reverse of "manmohandograuk@gmail.com" — kept obfuscated to avoid plain-text bot scraping
+    var email = 'moc.liamg@kuargodnahomnam'.split('').reverse().join('');
+    // WhatsApp UK mobile, assembled from integer fragments
     var wa = [44,7586,236182].map(String).join('');
     return { email: email, wa: wa };
   }
