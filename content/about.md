@@ -11,7 +11,7 @@
 |---|---|
 | **Gharana** | Banaras Gharana (with knowledge of Delhi & Ajrada) |
 | **Based In** | United Kingdom |
-| **Guru** | Pt. Vijay Shankar Mishra |
+| **Guru** | SNA Pt. Vijay Shankar Mishra |
 | **Experience** | 20+ Years |
 | **Instrument** | Tabla (Solo & Accompaniment) |
 
@@ -21,7 +21,7 @@
 
 Manmohan Dogra is one of the most compelling voices in the world of Hindustani classical percussion today. A gifted tabla artist rooted in the revered Banaras Gharana, Manmohan carries more than two decades of dedicated practice within him — yet performs with a freshness that transcends tradition. Now based in the United Kingdom, he has become a celebrated ambassador of Indian classical music on the global stage, captivating audiences from Delhi to Edinburgh with his extraordinary command of the tabla.
 
-Born into a family with a business background, Manmohan's earliest musical memories are of his mother, Renu Dogra, singing devotional bhajans at home. Long before he formally took up the tabla, he was instinctively tapping out rhythms on any surface within reach — tables, walls, books. A perceptive schoolteacher noticed this innate gift and gifted him his first tabla, setting in motion a lifelong journey.
+Born into a family with a business background, Manmohan's earliest musical memories are of his mother, Renu Dogra, singing devotional bhajans at home. His formal journey into music began at school, where his music teacher **Renuka** recognised his innate sense of rhythm and set him on the path of tabla — an early inspiration that planted the seed for a lifelong devotion to Indian classical percussion.
 
 > *"Playing the tabla is not just about mastering compositions but about developing a true sense of rhythm that can travel across traditions. Fusion is not about replacing one form with another; it is about blending them respectfully and finding a shared voice."*
 > — Manmohan Dogra
@@ -30,11 +30,9 @@ Born into a family with a business background, Manmohan's earliest musical memor
 
 ## Musical Lineage & Training
 
-Under the rigorous and nurturing guidance of Pandit Vijay Shankar Mishra — an eminent musicologist and master of the Banaras tradition — Manmohan immersed himself in the depths of the Banaras Baaj style. The Banaras Gharana is renowned for its lyrical expressiveness and rich resonance, qualities that define Manmohan's own sound. He further broadened his rhythmic palette by studying the Delhi and Ajrada Gharanas, making him one of the few artists today who can fluently speak the language of multiple tabla traditions.
+His main Guru — and the defining force in his artistry — is **Sangeet Natak Akademi Awardee Pandit Vijay Shankar Mishra**, an eminent musicologist and master of the Banaras tradition. Under Pt. Mishra's rigorous and nurturing guidance, Manmohan immersed himself in the depths of the Banaras Baaj style. The Banaras Gharana is renowned for its lyrical expressiveness and rich resonance, qualities that define Manmohan's own sound. He further broadened his rhythmic palette by studying the Delhi and Ajrada Gharanas, making him one of the few artists today who can fluently speak the language of multiple tabla traditions.
 
 Complementing his percussive mastery, Manmohan also underwent vocal training under Pt. Dr. Prabhakar Kashyap, deepening his understanding of melodic structure and rhythmic interplay central to classical accompaniment. He cites the late Ustad Zakir Hussain as a towering inspiration — admiring not only his unmatched technical brilliance, but his ability to communicate with an audience through pure rhythm.
-
-A profound personal influence has been his elder sister, renowned Kathak exponent Era Dogra. Rehearsing alongside her gave Manmohan an intimate understanding of the bols — the rhythmic syllables shared between tabla and Kathak — and instilled in him the discipline, sensitivity, and full concentration required to accompany a classical dancer.
 
 ---
 
