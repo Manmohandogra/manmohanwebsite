@@ -65,19 +65,41 @@
   /* ---------- Page background slideshow ---------- */
   // Each photo: { file, category, focal }
   // focal = background-position string; chosen per-photo so face / subject is never cropped.
+  // Background images use the lightweight thumbnails in assets/img/thumb/ —
+  // they sit blurred and dimmed behind an overlay, so full-resolution files
+  // would only add page weight. Full-size originals are used in the gallery lightbox.
   var PHOTOS = [
-    { file: 'DSC00194.jpg',                             category: 'performance', focal: 'center 38%' },
-    { file: 'DSC00212.jpg',                             category: 'performance', focal: 'center 35%' },
-    { file: 'DSC01903 (2025-08-09T20_53_01.929).JPG',   category: 'performance', focal: 'center 25%' },
-    { file: 'DSC_6030.jpg',                             category: 'portrait',    focal: 'center 28%' },
-    { file: 'DSC_6032.jpg',                             category: 'portrait',    focal: 'center 28%' },
-    { file: 'DSC_6526.jpg',                             category: 'portrait',    focal: 'center 28%' },
-    { file: 'IMG-20240823-WA0000.jpg',                  category: 'performance', focal: 'center 40%' },
-    { file: 'IMG_4127.JPG',                             category: 'performance', focal: 'center 40%' },
-    { file: 'IMG_4200.JPG',                             category: 'performance', focal: 'center 40%' },
-    { file: 'IMG_4501.JPG',                             category: 'performance', focal: 'center 40%' },
-    { file: 'Z6B_6546.jpg',                             category: 'portrait',    focal: 'center 28%' },
-    { file: 'Z6B_6554.jpg',                             category: 'portrait',    focal: 'center 35%' }
+    { file: 'assets/img/thumb/dsc-6030.jpg', category: 'portrait', focal: 'center 28%' },
+    { file: 'assets/img/thumb/dsc-6032.jpg', category: 'portrait', focal: 'center 28%' },
+    { file: 'assets/img/thumb/dsc-6526.jpg', category: 'portrait', focal: 'center 30%' },
+    { file: 'assets/img/thumb/dsc00194.jpg', category: 'performance', focal: 'center 38%' },
+    { file: 'assets/img/thumb/screenshot-2022-11-16-at-17-21-05.jpg', category: 'performance', focal: 'center 40%' },
+    { file: 'assets/img/thumb/z6b-6546.jpg', category: 'performance', focal: 'center 40%' },
+    { file: 'assets/img/thumb/dsc01903-2025-08-09t20-53-01-929.jpg', category: 'performance', focal: 'center 40%' },
+    { file: 'assets/img/thumb/dsc00212.jpg', category: 'performance', focal: 'center 35%' },
+    { file: 'assets/img/thumb/img-7710.jpg', category: 'london', focal: 'center 45%' },
+    { file: 'assets/img/thumb/img-7740.jpg', category: 'london', focal: 'center 45%' },
+    { file: 'assets/img/thumb/img-7715.jpg', category: 'london', focal: 'center 45%' },
+    { file: 'assets/img/thumb/img-7719.jpg', category: 'london', focal: 'center 45%' },
+    { file: 'assets/img/thumb/img-8196.jpg', category: 'london', focal: 'center 45%' },
+    { file: 'assets/img/thumb/img-8200.jpg', category: 'london', focal: 'center 45%' },
+    { file: 'assets/img/thumb/img-8368.jpg', category: 'london', focal: 'center 45%' },
+    { file: 'assets/img/thumb/img-8405.jpg', category: 'london', focal: 'center 45%' },
+    { file: 'assets/img/thumb/img-8180.jpg', category: 'london', focal: 'center 55%' },
+    { file: 'assets/img/thumb/img-8541.jpg', category: 'london', focal: 'center 50%' },
+    { file: 'assets/img/thumb/img-8542.jpg', category: 'london', focal: 'center 50%' },
+    { file: 'assets/img/thumb/img-8609.jpg', category: 'london', focal: 'center 45%' },
+    { file: 'assets/img/thumb/img-8612.jpg', category: 'london', focal: 'center 45%' },
+    { file: 'assets/img/thumb/img-8709.jpg', category: 'london', focal: 'center 45%' },
+    { file: 'assets/img/thumb/img-8713.jpg', category: 'london', focal: 'center 45%' },
+    { file: 'assets/img/thumb/img-8048.jpg', category: 'london', focal: 'center 45%' },
+    { file: 'assets/img/thumb/img-4501.jpg', category: 'london', focal: 'center 45%' },
+    { file: 'assets/img/thumb/img-20240823-wa0000.jpg', category: 'collab', focal: 'center 40%' },
+    { file: 'assets/img/thumb/img-4127.jpg', category: 'collab', focal: 'center 40%' },
+    { file: 'assets/img/thumb/img-4200.jpg', category: 'collab', focal: 'center 40%' },
+    { file: 'assets/img/thumb/z6b-6554.jpg', category: 'collab', focal: 'center 40%' },
+    { file: 'assets/img/thumb/etienne1.jpg', category: 'collab', focal: 'center 40%' },
+    { file: 'assets/img/thumb/siemy-di-drummer.jpg', category: 'collab', focal: 'center 40%' }
   ];
 
   function setupPageBg(){
