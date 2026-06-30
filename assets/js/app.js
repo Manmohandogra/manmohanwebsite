@@ -72,7 +72,7 @@
     { file: 'assets/img/thumb/dsc-6030.jpg', category: 'portrait', focal: 'center 28%' },
     { file: 'assets/img/thumb/dsc-6032.jpg', category: 'portrait', focal: 'center 28%' },
     { file: 'assets/img/thumb/dsc-6526.jpg', category: 'portrait', focal: 'center 30%' },
-    { file: 'assets/img/thumb/dsc00194.jpg', category: 'performance', focal: 'center 38%' },
+    { file: 'assets/img/thumb/dsc00194.jpg', category: 'performance', focal: 'center 38%', home: true },
     { file: 'assets/img/thumb/screenshot-2022-11-16-at-17-21-05.jpg', category: 'performance', focal: 'center 40%' },
     { file: 'assets/img/thumb/z6b-6546.jpg', category: 'performance', focal: 'center 40%' },
     { file: 'assets/img/thumb/dsc01903-2025-08-09t20-53-01-929.jpg', category: 'performance', focal: 'center 40%' },
@@ -88,18 +88,16 @@
     { file: 'assets/img/thumb/img-8180.jpg', category: 'london', focal: 'center 55%' },
     { file: 'assets/img/thumb/img-8541.jpg', category: 'london', focal: 'center 50%' },
     { file: 'assets/img/thumb/img-8542.jpg', category: 'london', focal: 'center 50%' },
-    { file: 'assets/img/thumb/img-8609.jpg', category: 'london', focal: 'center 45%' },
-    { file: 'assets/img/thumb/img-8612.jpg', category: 'london', focal: 'center 45%' },
-    { file: 'assets/img/thumb/img-8709.jpg', category: 'london', focal: 'center 45%' },
-    { file: 'assets/img/thumb/img-8713.jpg', category: 'london', focal: 'center 45%' },
+    { file: 'assets/img/thumb/img-8609.jpg', category: 'london', focal: 'center 45%', home: true },
+    { file: 'assets/img/thumb/img-8612.jpg', category: 'london', focal: 'center 45%', home: true },
+    { file: 'assets/img/thumb/img-8709.jpg', category: 'london', focal: 'center 45%', home: true },
+    { file: 'assets/img/thumb/img-8713.jpg', category: 'london', focal: 'center 45%', home: true },
     { file: 'assets/img/thumb/img-8048.jpg', category: 'london', focal: 'center 45%' },
     { file: 'assets/img/thumb/img-4501.jpg', category: 'london', focal: 'center 45%' },
     { file: 'assets/img/thumb/img-20240823-wa0000.jpg', category: 'collab', focal: 'center 40%' },
     { file: 'assets/img/thumb/img-4127.jpg', category: 'collab', focal: 'center 40%' },
     { file: 'assets/img/thumb/img-4200.jpg', category: 'collab', focal: 'center 40%' },
-    { file: 'assets/img/thumb/z6b-6554.jpg', category: 'collab', focal: 'center 40%' },
-    { file: 'assets/img/thumb/etienne1.jpg', category: 'collab', focal: 'center 40%' },
-    { file: 'assets/img/thumb/siemy-di-drummer.jpg', category: 'collab', focal: 'center 40%' }
+    { file: 'assets/img/thumb/z6b-6554.jpg', category: 'collab', focal: 'center 40%' }
   ];
 
   function setupPageBg(){
@@ -108,6 +106,7 @@
 
     var wanted = (el.getAttribute('data-bg-category') || 'all').toLowerCase();
     var list = PHOTOS.filter(function(p){
+      if(wanted === 'home') return p.home === true; // curated horizontal hero set
       if(wanted === 'all') return true;
       return wanted.split(',').indexOf(p.category) >= 0;
     });
