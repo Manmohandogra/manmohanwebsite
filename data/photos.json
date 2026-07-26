@@ -64,6 +64,96 @@
       "file": "Z6B_6554.jpg",
       "category": "portrait",
       "focal": "center 35%"
+    },
+    {
+      "file": "CONCERT_0001.jpg",
+      "category": "performance",
+      "focal": "center 38%"
+    },
+    {
+      "file": "CONCERT_0003.jpg",
+      "category": "performance",
+      "focal": "center 32%"
+    },
+    {
+      "file": "CONCERT_0004.jpg",
+      "category": "performance",
+      "focal": "center 30%"
+    },
+    {
+      "file": "CONCERT_0005.jpg",
+      "category": "performance",
+      "focal": "center 25%"
+    },
+    {
+      "file": "CONCERT_0006.jpg",
+      "category": "performance",
+      "focal": "center 32%"
+    },
+    {
+      "file": "CONCERT_0020.jpg",
+      "category": "performance",
+      "focal": "center 30%"
+    },
+    {
+      "file": "CONCERT_0021.jpg",
+      "category": "performance",
+      "focal": "center 30%"
+    },
+    {
+      "file": "CONCERT_0022.jpg",
+      "category": "performance",
+      "focal": "center 28%"
+    },
+    {
+      "file": "CONCERT_0025.jpg",
+      "category": "performance",
+      "focal": "center 30%"
+    },
+    {
+      "file": "CONCERT_0026.jpg",
+      "category": "performance",
+      "focal": "center 28%"
+    },
+    {
+      "file": "CONCERT_0027.jpg",
+      "category": "performance",
+      "focal": "center 28%"
+    },
+    {
+      "file": "CONCERT_0034.jpg",
+      "category": "performance",
+      "focal": "center 25%"
+    },
+    {
+      "file": "CONCERT_0035.jpg",
+      "category": "performance",
+      "focal": "center 25%"
+    },
+    {
+      "file": "CONCERT_0037.jpg",
+      "category": "performance",
+      "focal": "center 28%"
+    },
+    {
+      "file": "CONCERT_0041.jpg",
+      "category": "performance",
+      "focal": "center 30%"
+    },
+    {
+      "file": "CONCERT_0065.jpg",
+      "category": "performance",
+      "focal": "center 30%"
+    },
+    {
+      "file": "IMG_7757.jpg",
+      "category": "london",
+      "focal": "center 35%"
+    },
+    {
+      "file": "IMG_8129 copy.jpg",
+      "category": "portrait",
+      "focal": "center 25%"
     }
   ]
 }

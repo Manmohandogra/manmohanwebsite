@@ -97,7 +97,25 @@
     { file: 'assets/img/thumb/img-20240823-wa0000.jpg', category: 'collab', focal: 'center 40%' },
     { file: 'assets/img/thumb/img-4127.jpg', category: 'collab', focal: 'center 40%' },
     { file: 'assets/img/thumb/img-4200.jpg', category: 'collab', focal: 'center 40%' },
-    { file: 'assets/img/thumb/z6b-6554.jpg', category: 'collab', focal: 'center 40%' }
+    { file: 'assets/img/thumb/z6b-6554.jpg', category: 'collab', focal: 'center 40%' },
+    { file: 'assets/img/thumb/concert-0001.jpg', category: 'performance', focal: 'center 38%', home: true },
+    { file: 'assets/img/thumb/concert-0003.jpg', category: 'performance', focal: 'center 32%' },
+    { file: 'assets/img/thumb/concert-0004.jpg', category: 'performance', focal: 'center 30%' },
+    { file: 'assets/img/thumb/concert-0005.jpg', category: 'performance', focal: 'center 25%' },
+    { file: 'assets/img/thumb/concert-0006.jpg', category: 'performance', focal: 'center 32%', home: true },
+    { file: 'assets/img/thumb/concert-0020.jpg', category: 'performance', focal: 'center 30%' },
+    { file: 'assets/img/thumb/concert-0021.jpg', category: 'performance', focal: 'center 30%', home: true },
+    { file: 'assets/img/thumb/concert-0022.jpg', category: 'performance', focal: 'center 28%' },
+    { file: 'assets/img/thumb/concert-0025.jpg', category: 'performance', focal: 'center 30%' },
+    { file: 'assets/img/thumb/concert-0026.jpg', category: 'performance', focal: 'center 28%' },
+    { file: 'assets/img/thumb/concert-0027.jpg', category: 'performance', focal: 'center 28%' },
+    { file: 'assets/img/thumb/concert-0034.jpg', category: 'performance', focal: 'center 25%', home: true },
+    { file: 'assets/img/thumb/concert-0035.jpg', category: 'performance', focal: 'center 25%' },
+    { file: 'assets/img/thumb/concert-0037.jpg', category: 'performance', focal: 'center 28%' },
+    { file: 'assets/img/thumb/concert-0041.jpg', category: 'performance', focal: 'center 30%' },
+    { file: 'assets/img/thumb/concert-0065.jpg', category: 'performance', focal: 'center 30%' },
+    { file: 'assets/img/thumb/img-7757.jpg', category: 'london', focal: 'center 35%' },
+    { file: 'assets/img/thumb/img-8129-copy.jpg', category: 'portrait', focal: 'center 25%' }
   ];
 
   function setupPageBg(){
