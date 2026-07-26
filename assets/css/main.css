@@ -187,7 +187,7 @@ body{
 }
 .bg-sharp{
   position:absolute;inset:0;
-  background-size:contain;
+  background-size:cover;
   background-position:var(--bg-focal,center 25%);
   background-repeat:no-repeat;
   opacity:var(--sharp-opacity,0.88);
