@@ -11,7 +11,7 @@
 |---|---|
 | **Gharana** | Banaras Gharana (with knowledge of Delhi & Ajrada) |
 | **Based In** | United Kingdom |
-| **Guru** | SNA Pt. Vijay Shankar Mishra |
+| **Guru** | SNA Awardee Pt. Vijay Shankar Mishra |
 | **Experience** | 20+ Years |
 | **Instrument** | Tabla (Solo & Accompaniment) |
 
