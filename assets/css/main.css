@@ -720,7 +720,6 @@ section{
 
 /* ---------- Events Page (event listing cards) ---------- */
 .event-listing{
-  display:grid;grid-template-columns:1fr 2fr;gap:0;
   background:color-mix(in srgb,var(--bg-card) 92%,transparent);
   border:1px solid var(--border);border-radius:8px;
   overflow:hidden;margin-bottom:2.5rem;
@@ -728,9 +727,9 @@ section{
 }
 .event-listing:hover{border-color:var(--accent);box-shadow:var(--shadow);transform:translateY(-4px)}
 .event-listing-image{
+  width:100%;aspect-ratio:2/1;
   background-size:cover;background-position:center 35%;
   background-color:var(--bg-alt);
-  min-height:320px;
 }
 .event-listing-body{
   display:flex;align-items:flex-start;gap:2rem;
@@ -765,8 +764,7 @@ section{
   color:var(--text-muted);margin-bottom:1rem;
 }
 @media (max-width:800px){
-  .event-listing{grid-template-columns:1fr}
-  .event-listing-image{min-height:220px}
+  .event-listing-image{aspect-ratio:4/3}
   .event-listing-body{flex-direction:column;gap:1.5rem;padding:1.8rem}
 }
 
