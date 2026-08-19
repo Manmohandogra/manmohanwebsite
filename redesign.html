@@ -74,20 +74,19 @@
   .bigname .word{display:inline-block;will-change:transform}
   .namebox{
     display:inline-block;flex:0 0 auto;
-    width:0.84em;height:0.84em;overflow:hidden;border-radius:3px;background:#141414;
+    width:0.84em;height:0.84em;overflow:hidden;border-radius:0;background:#141414;
     transform-origin:center center;will-change:transform;
-    box-shadow:0 0 0 1px rgba(255,255,255,0.10);
   }
-  .namebox img{width:100%;height:100%;object-fit:cover;object-position:center 18%;filter:grayscale(100%) contrast(1.06);display:block}
+  .namebox img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(100%) contrast(1.06);display:block}
   .hero-sub{
     margin-top:2rem;font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--grey);
-    opacity:0;transition:opacity .7s ease 5.3s;
+    opacity:0;transition:opacity .7s ease 6.1s;
   }
   .hero.shown .hero-sub{opacity:1}
   .scroll-cue{
     position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);z-index:2;
     font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--grey);
-    opacity:0;transition:opacity .7s ease 5.6s;
+    opacity:0;transition:opacity .7s ease 6.4s;
   }
   .hero.shown .scroll-cue{opacity:1}
   @media (prefers-reduced-motion: reduce){
@@ -183,7 +182,7 @@
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
   <h1 class="bigname" aria-label="Manmohan Dogra">
-    <span class="word w-left">Manmohan</span><span class="namebox" aria-hidden="true"><img src="IMG_7757.jpg" alt=""></span><span class="word w-right">Dogra</span>
+    <span class="word w-left">Manmohan</span><span class="namebox" aria-hidden="true"><img src="IMG_8405.jpg" alt=""></span><span class="word w-right">Dogra</span>
   </h1>
   <p class="hero-sub">Tabla Virtuoso · Banaras Gharana</p>
   <span class="scroll-cue">Scroll ↓</span>
@@ -324,12 +323,13 @@
     var r=box.getBoundingClientRect();
     if(!r.height){ hero.classList.add('shown'); return; }
     var cx=r.left+r.width/2, cy=r.top+r.height/2;
-    var bigH=Math.min(window.innerHeight, window.innerWidth)*0.90;   // larger opening image
-    var scale=bigH/r.height;
+    // cover the ENTIRE screen: the square tile must span the longer viewport edge
+    // (parts of the image bleed off-screen at the start — intended)
+    var scale=Math.max(window.innerWidth, window.innerHeight)/r.height*1.04;
     var dx=(window.innerWidth/2 - cx);
     var dy=(window.innerHeight/2 - cy);
 
-    // starting state: portrait big & centred (faded out), names off the two edges
+    // starting state: portrait covering the full screen, names off the two edges
     box.style.transition='none';
     box.style.opacity='0';
     box.style.transform='translate('+dx+'px,'+dy+'px) scale('+scale+')';
@@ -339,13 +339,14 @@
     hero.classList.add('shown');
     void box.offsetWidth; // force reflow so the start state is committed
 
-    // 1) portrait fades up (~0.55s) and HOLDS at full size for 3 seconds
-    // 2) then zooms out over 2s into the letter-sized slot
-    // 3) the names slide in from both edges as it settles between them
-    box.style.transition='opacity .55s ease, transform 2s cubic-bezier(.19,.86,.26,1) 3s';
+    // one continuous 6s zoom-out that starts from the very first moment,
+    // but eased so it is near-imperceptible at first, accelerates through the
+    // middle, and settles gently into the letter slot (never linear)
+    box.style.transition='opacity .5s ease, transform 6s cubic-bezier(.85,.02,.17,1)';
     box.style.opacity='1';
     box.style.transform='translate(0,0) scale(1)';
-    var ease='transform 1.6s cubic-bezier(.19,.86,.26,1) 3.7s';
+    // names arrive from both edges while the picture is completing its landing
+    var ease='transform 1.8s cubic-bezier(.22,.8,.24,1) 3.9s';
     left.style.transition=ease;  left.style.transform='translateX(0)';
     right.style.transition=ease; right.style.transform='translateX(0)';
   }
