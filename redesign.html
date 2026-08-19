@@ -81,13 +81,13 @@
   .namebox img{width:100%;height:100%;object-fit:cover;object-position:center 18%;filter:grayscale(100%) contrast(1.06);display:block}
   .hero-sub{
     margin-top:2rem;font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--grey);
-    opacity:0;transition:opacity .6s ease 1.15s;
+    opacity:0;transition:opacity .7s ease 2.1s;
   }
   .hero.shown .hero-sub{opacity:1}
   .scroll-cue{
     position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);z-index:2;
     font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--grey);
-    opacity:0;transition:opacity .6s ease 1.4s;
+    opacity:0;transition:opacity .7s ease 2.4s;
   }
   .hero.shown .scroll-cue{opacity:1}
   @media (prefers-reduced-motion: reduce){
@@ -321,10 +321,10 @@
     hero.classList.add('shown');
     void box.offsetWidth; // force reflow so the start state is committed
 
-    // animate to the resting composition
-    box.style.transition='transform 1.25s cubic-bezier(.16,.84,.29,1)';
+    // animate to the resting composition (slower, more cinematic zoom-out)
+    box.style.transition='transform 2.3s cubic-bezier(.19,.86,.26,1)';
     box.style.transform='translate(0,0) scale(1)';
-    var ease='transform 1.05s cubic-bezier(.16,.84,.29,1) .32s';
+    var ease='transform 1.7s cubic-bezier(.19,.86,.26,1) .5s';
     left.style.transition=ease;  left.style.transform='translateX(0)';
     right.style.transition=ease; right.style.transform='translateX(0)';
   }
