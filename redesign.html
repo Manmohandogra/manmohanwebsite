@@ -7,7 +7,7 @@
 <meta name="description" content="Manmohan Dogra — Tabla virtuoso of the Banaras Gharana. Live dates, music and rhythm across the United Kingdom and beyond.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
     --black:#0a0a0a;
@@ -57,35 +57,43 @@
     .nav-burger{display:block}
   }
 
-  /* ---------- hero ---------- */
+  /* ---------- hero (animated name + inline portrait) ---------- */
   .hero{
-    position:relative;height:100vh;min-height:620px;
-    display:flex;align-items:flex-end;
-    overflow:hidden;
+    position:relative;height:100vh;min-height:600px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:var(--black);overflow:hidden;text-align:center;
   }
-  .hero-img{
-    position:absolute;inset:0;
-    background:url('IMG_4501.JPG') center 25%/cover no-repeat;
-    filter:grayscale(100%) contrast(1.05) brightness(0.8);
-    transform:scale(1.02);
+  .bigname{
+    display:flex;align-items:center;justify-content:center;gap:0.16em;
+    font-family:"Archivo",Helvetica,Arial,sans-serif;font-weight:900;
+    text-transform:uppercase;white-space:nowrap;
+    font-size:clamp(1.6rem,10.5vw,9.5rem);line-height:0.9;letter-spacing:-0.01em;
+    visibility:hidden;
   }
-  .hero::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(10,10,10,.45) 0%,rgba(10,10,10,0) 30%,rgba(10,10,10,.15) 55%,rgba(10,10,10,.95) 100%);
+  .hero.shown .bigname{visibility:visible}
+  .bigname .word{display:inline-block;will-change:transform}
+  .namebox{
+    display:inline-block;flex:0 0 auto;
+    width:0.84em;height:0.84em;overflow:hidden;border-radius:3px;background:#141414;
+    transform-origin:center center;will-change:transform;
+    box-shadow:0 0 0 1px rgba(255,255,255,0.10);
   }
-  .hero-content{position:relative;z-index:2;width:100%;padding-bottom:clamp(2.5rem,6vw,5rem)}
-  .hero h1{
-    font-weight:900;
-    font-size:clamp(3.2rem,13vw,12rem);
-    line-height:0.86;letter-spacing:-0.03em;text-transform:uppercase;
+  .namebox img{width:100%;height:100%;object-fit:cover;object-position:center 18%;filter:grayscale(100%) contrast(1.06);display:block}
+  .hero-sub{
+    margin-top:2rem;font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--grey);
+    opacity:0;transition:opacity .6s ease 1.15s;
   }
-  .hero .sub{
-    margin-top:1.4rem;max-width:34ch;
-    font-size:clamp(0.95rem,1.4vw,1.15rem);color:#cfcfcf;font-weight:400;
-  }
+  .hero.shown .hero-sub{opacity:1}
   .scroll-cue{
     position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);z-index:2;
     font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--grey);
+    opacity:0;transition:opacity .6s ease 1.4s;
+  }
+  .hero.shown .scroll-cue{opacity:1}
+  @media (prefers-reduced-motion: reduce){
+    .bigname{visibility:visible}
+    .bigname .word,.namebox{transform:none !important;transition:none !important}
+    .hero-sub,.scroll-cue{opacity:1;transition:none}
   }
 
   /* ---------- section frame ---------- */
@@ -174,11 +182,10 @@
 
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
-  <div class="hero-img"></div>
-  <div class="hero-content wrap">
-    <h1>Manmohan<br>Dogra</h1>
-    <p class="sub">Tabla virtuoso of the Banaras Gharana — bridging continents through the ancient language of rhythm.</p>
-  </div>
+  <h1 class="bigname" aria-label="Manmohan Dogra">
+    <span class="word w-left">Manmohan</span><span class="namebox" aria-hidden="true"><img src="IMG_7757.jpg" alt=""></span><span class="word w-right">Dogra</span>
+  </h1>
+  <p class="hero-sub">Tabla Virtuoso · Banaras Gharana</p>
   <span class="scroll-cue">Scroll ↓</span>
 </header>
 
@@ -279,5 +286,60 @@
 </footer>
 
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+
+<!-- hero load animation: portrait zooms out from ~full screen into a letter-sized
+     slot between the two names, while the names slide in from the two edges -->
+<script>
+(function(){
+  var hero=document.querySelector('.hero');
+  var box=document.querySelector('.namebox');
+  var left=document.querySelector('.w-left');
+  var right=document.querySelector('.w-right');
+  if(!hero||!box||!left||!right) return;
+
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    hero.classList.add('shown');
+    return;
+  }
+
+  function run(){
+    // measure the final letter-sized slot (layout already in place; only visibility hidden)
+    var r=box.getBoundingClientRect();
+    if(!r.height){ hero.classList.add('shown'); return; }
+    var cx=r.left+r.width/2, cy=r.top+r.height/2;
+    var bigH=Math.min(window.innerHeight, window.innerWidth)*0.82;
+    var scale=bigH/r.height;
+    var dx=(window.innerWidth/2 - cx);
+    var dy=(window.innerHeight/2 - cy);
+
+    // set the "big / off-screen" starting state with no transition
+    box.style.transition='none';
+    box.style.transform='translate('+dx+'px,'+dy+'px) scale('+scale+')';
+    left.style.transition='none';   left.style.transform='translateX(-115vw)';
+    right.style.transition='none';  right.style.transform='translateX(115vw)';
+
+    hero.classList.add('shown');
+    void box.offsetWidth; // force reflow so the start state is committed
+
+    // animate to the resting composition
+    box.style.transition='transform 1.25s cubic-bezier(.16,.84,.29,1)';
+    box.style.transform='translate(0,0) scale(1)';
+    var ease='transform 1.05s cubic-bezier(.16,.84,.29,1) .32s';
+    left.style.transition=ease;  left.style.transform='translateX(0)';
+    right.style.transition=ease; right.style.transform='translateX(0)';
+  }
+
+  // wait for fonts (affects letter widths -> slot position) and the portrait to load
+  var start=function(){ requestAnimationFrame(function(){ requestAnimationFrame(run); }); };
+  var img=box.querySelector('img');
+  var fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+  if(img && !img.complete){
+    img.addEventListener('load', function(){ fontsReady.then(start); });
+    img.addEventListener('error', function(){ fontsReady.then(start); });
+  } else {
+    fontsReady.then(start);
+  }
+})();
+</script>
 </body>
 </html>
