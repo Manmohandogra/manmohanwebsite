@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 /* ============================================================
    Manmohan Dogra — Tabla Virtuoso | Master Stylesheet
-   Four themes selectable via [data-theme] on <html>
+   Site-wide monochrome theme (matches the homepage).
+   The override block at the very bottom of this file wins.
    ============================================================ */
 
 /* ---------- Custom font: Taiganja Type ---------- */
@@ -808,3 +811,61 @@ section{
   .event-detail-grid{grid-template-columns:1fr;gap:2.5rem}
   .event-poster-frame{max-width:280px;margin:0 auto}
 }
+
+/* ============================================================
+   MONOCHROME THEME — site-wide black & white to match the
+   homepage. Placed last so it overrides every theme above.
+   Palette + fonts are remapped through the CSS variables, so
+   all existing components pick it up automatically.
+   ============================================================ */
+:root,
+:root[data-theme="royal-banaras"],
+:root[data-theme="editorial-raga"],
+:root[data-theme="midnight-concert"],
+:root[data-theme="temple-saffron"],
+:root[data-theme="peacock-teal"],
+:root[data-theme="varanasi-dusk"],
+:root[data-theme]{
+  --bg:          #0a0a0a;
+  --bg-alt:      #131313;
+  --bg-card:     #101010;
+  --text:        #f4f4f2;
+  --text-muted:  #b7b7b3;
+  --text-dim:    #7f7f7c;
+  --accent:      #f4f4f2;
+  --accent-2:    #9a9a97;
+  --border:      rgba(244,244,242,0.16);
+  --border-soft: rgba(244,244,242,0.09);
+  --shadow:      0 24px 60px rgba(0,0,0,0.6);
+  --hero-glow:   none;
+  --hero-overlay: linear-gradient(180deg, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.92) 100%);
+  --font-head:   'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --font-body:   'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --font-serif:  'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --blur-brightness: 0.18;
+  --sharp-opacity:   0.45;
+}
+
+/* headings: the display grotesque, heavier and tighter */
+h1,h2,h3,h4{font-family:var(--font-head);letter-spacing:-0.01em;font-weight:800}
+h1{font-weight:900;letter-spacing:-0.5px}
+.serif{font-style:italic}
+.hero .sub,.event-subtitle,.concert-subtitle,.video-caption,.press-card blockquote,.pull-quote{font-style:normal}
+
+/* buttons → pill shape like the homepage */
+.btn,.btn-primary{border-radius:999px}
+
+/* imagery → grayscale, colour on gallery hover */
+.event-listing-image,.artist-photo,.hero-image,.two-col img,
+.event-poster-img,.press-card img{filter:grayscale(100%) contrast(1.04)}
+.gallery-item img{filter:grayscale(100%) contrast(1.04)}
+.gallery-item:hover img{filter:grayscale(0%) contrast(1.02)}
+.bg-sharp{filter:grayscale(1) contrast(1.05)}
+.bg-blur{filter:blur(40px) brightness(var(--blur-brightness,0.18)) grayscale(1)}
+
+/* tone down colourful decorations */
+.card::before{background:rgba(244,244,242,0.22)}
+.concert-title,.event-title{letter-spacing:-0.5px}
+
+/* commit to the one theme: hide the multi-theme switcher */
+.theme-switch{display:none !important}
