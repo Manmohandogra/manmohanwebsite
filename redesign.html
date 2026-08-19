@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Manmohan Dogra — Tabla</title>
+<meta name="description" content="Manmohan Dogra — Tabla virtuoso of the Banaras Gharana. Live dates, music and rhythm across the United Kingdom and beyond.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0a0a;
+    --ink:#f4f4f2;
+    --grey:#8a8a8a;
+    --line:#242424;
+    --accent:#f4f4f2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--black);
+    color:var(--ink);
+    font-family:"Inter",Helvetica,Arial,sans-serif;
+    font-weight:400;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1400px;margin:0 auto;padding:0 clamp(1.2rem,4vw,4rem)}
+
+  /* ---------- labels ---------- */
+  .label{
+    font-size:0.72rem;letter-spacing:0.28em;text-transform:uppercase;
+    font-weight:600;color:var(--grey);
+  }
+
+  /* ---------- nav ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.5rem clamp(1.2rem,4vw,4rem);
+    mix-blend-mode:difference;
+  }
+  nav .brand{font-weight:800;letter-spacing:0.02em;font-size:1.05rem;text-transform:uppercase}
+  nav .menu{display:flex;gap:2.2rem}
+  nav .menu a{
+    font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;
+    opacity:0.85;transition:opacity .2s;
+  }
+  nav .menu a:hover{opacity:1}
+  .nav-burger{display:none;font-size:1.4rem;background:none;border:0;color:var(--ink);cursor:pointer}
+  @media(max-width:820px){
+    nav .menu{display:none}
+    .nav-burger{display:block}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;height:100vh;min-height:620px;
+    display:flex;align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero-img{
+    position:absolute;inset:0;
+    background:url('IMG_4501.JPG') center 25%/cover no-repeat;
+    filter:grayscale(100%) contrast(1.05) brightness(0.8);
+    transform:scale(1.02);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(10,10,10,.45) 0%,rgba(10,10,10,0) 30%,rgba(10,10,10,.15) 55%,rgba(10,10,10,.95) 100%);
+  }
+  .hero-content{position:relative;z-index:2;width:100%;padding-bottom:clamp(2.5rem,6vw,5rem)}
+  .hero h1{
+    font-weight:900;
+    font-size:clamp(3.2rem,13vw,12rem);
+    line-height:0.86;letter-spacing:-0.03em;text-transform:uppercase;
+  }
+  .hero .sub{
+    margin-top:1.4rem;max-width:34ch;
+    font-size:clamp(0.95rem,1.4vw,1.15rem);color:#cfcfcf;font-weight:400;
+  }
+  .scroll-cue{
+    position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);z-index:2;
+    font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--grey);
+  }
+
+  /* ---------- section frame ---------- */
+  section.block{padding:clamp(4rem,9vw,8rem) 0;border-top:1px solid var(--line)}
+  .head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:2.6rem}
+  .head h2{font-size:clamp(1.8rem,4.5vw,3.4rem);font-weight:800;letter-spacing:-0.02em;text-transform:uppercase;line-height:1}
+
+  /* ---------- live dates ---------- */
+  .date-row{
+    display:grid;grid-template-columns:150px 1fr auto;gap:1.5rem;align-items:center;
+    padding:1.6rem 0;border-top:1px solid var(--line);transition:background .25s,padding .25s;
+  }
+  .date-row:last-child{border-bottom:1px solid var(--line)}
+  .date-row:hover{background:#141414;padding-left:1rem;padding-right:1rem}
+  .date-when{font-weight:700;font-size:1.05rem;letter-spacing:0.01em}
+  .date-when small{display:block;color:var(--grey);font-weight:500;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;margin-top:0.25rem}
+  .date-what{font-weight:500}
+  .date-what .venue{color:var(--grey);font-size:0.9rem;margin-top:0.2rem}
+  .ticket-btn{
+    border:1px solid var(--ink);padding:0.7rem 1.6rem;border-radius:999px;
+    font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;white-space:nowrap;
+    transition:background .2s,color .2s;
+  }
+  .ticket-btn:hover{background:var(--ink);color:var(--black)}
+  .ticket-btn.muted{border-color:var(--line);color:var(--grey);cursor:default}
+  .dates-note{margin-top:1.8rem;color:var(--grey);font-size:0.9rem}
+  @media(max-width:720px){
+    .date-row{grid-template-columns:1fr;gap:0.7rem}
+    .date-row .ticket-btn{justify-self:start}
+  }
+
+  /* ---------- about split ---------- */
+  .split{display:grid;grid-template-columns:1.05fr 0.95fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+  .split img{filter:grayscale(100%) contrast(1.05);aspect-ratio:4/5;object-fit:cover;width:100%}
+  .split p{color:#cececa;margin-top:1.1rem;max-width:52ch}
+  .split .label{margin-bottom:1.4rem;display:block}
+  .txt-link{display:inline-block;margin-top:1.8rem;font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;border-bottom:1px solid var(--grey);padding-bottom:0.35rem}
+  .txt-link:hover{border-color:var(--ink)}
+  @media(max-width:820px){.split{grid-template-columns:1fr}.split img{aspect-ratio:3/2;margin-bottom:1.5rem}}
+
+  /* ---------- pull quote ---------- */
+  .quote-block{text-align:center;max-width:22ch;margin:0 auto}
+  .quote-block blockquote{font-size:clamp(1.6rem,4.5vw,3.2rem);font-weight:300;line-height:1.15;letter-spacing:-0.01em}
+  .quote-block cite{display:block;margin-top:1.8rem;font-style:normal;font-size:0.75rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--grey)}
+
+  /* ---------- gallery strip ---------- */
+  .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+  .strip .cell{aspect-ratio:1/1;overflow:hidden}
+  .strip .cell div{width:100%;height:100%;background-size:cover;background-position:center;filter:grayscale(100%);transition:filter .4s,transform .6s}
+  .strip .cell:hover div{filter:grayscale(0%);transform:scale(1.06)}
+  @media(max-width:720px){.strip{grid-template-columns:repeat(2,1fr)}}
+
+  /* ---------- big CTA ---------- */
+  .cta{text-align:center}
+  .cta h2{font-size:clamp(2rem,7vw,5rem);font-weight:900;letter-spacing:-0.02em;text-transform:uppercase;line-height:0.95}
+  .cta p{color:var(--grey);margin:1.4rem auto 0;max-width:44ch}
+  .cta .row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.4rem}
+  .btn-solid{background:var(--ink);color:var(--black);padding:1rem 2.4rem;border-radius:999px;font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:700}
+  .btn-solid:hover{opacity:0.85}
+  .btn-ghost{border:1px solid var(--ink);padding:1rem 2.4rem;border-radius:999px;font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:700}
+  .btn-ghost:hover{background:var(--ink);color:var(--black)}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:3rem 0 2.4rem}
+  .foot-grid{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  .foot-socials{display:flex;gap:1.6rem}
+  .foot-socials a{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;color:var(--grey)}
+  .foot-socials a:hover{color:var(--ink)}
+  .foot-copy{color:#5c5c5c;font-size:0.72rem;letter-spacing:0.08em;margin-top:1.6rem}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <a href="#top" class="brand">Manmohan Dogra</a>
+  <div class="menu">
+    <a href="#live">Live</a>
+    <a href="#about">About</a>
+    <a href="#quote">Words</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="nav-burger" aria-label="Menu" onclick="document.getElementById('live').scrollIntoView()">≡</button>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-img"></div>
+  <div class="hero-content wrap">
+    <h1>Manmohan<br>Dogra</h1>
+    <p class="sub">Tabla virtuoso of the Banaras Gharana — bridging continents through the ancient language of rhythm.</p>
+  </div>
+  <span class="scroll-cue">Scroll ↓</span>
+</header>
+
+<!-- ============ LIVE ============ -->
+<section class="block" id="live">
+  <div class="wrap">
+    <div class="head">
+      <h2>Live</h2>
+      <span class="label">Upcoming</span>
+    </div>
+
+    <div class="date-row">
+      <div class="date-when">25 Sep 2026<small>Friday · 6PM</small></div>
+      <div class="date-what">
+        Roots &amp; Ragas
+        <div class="venue">Coffee Origin &amp; Five London · Blackstock Road, London N5</div>
+      </div>
+      <a href="https://aalaap.app/e/roots-ragas-ummg" target="_blank" rel="noopener" class="ticket-btn">Tickets</a>
+    </div>
+
+    <div class="date-row">
+      <div class="date-when">TBA 2026<small>Talayan Festival 2.0</small></div>
+      <div class="date-what">
+        Talayan — A Rhythm Project
+        <div class="venue">New collaborations beyond the concert stage</div>
+      </div>
+      <a href="https://talayanfestival.com/#top" target="_blank" rel="noopener" class="ticket-btn">Explore</a>
+    </div>
+
+    <p class="dates-note">More dates for the 2026 season announced soon. For festival &amp; venue bookings, get in touch.</p>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="block" id="about">
+  <div class="wrap split">
+    <img src="IMG_7757.jpg" alt="Manmohan Dogra with his tabla by Big Ben, London">
+    <div>
+      <span class="label">About</span>
+      <h2 style="font-size:clamp(1.8rem,4.5vw,3.2rem);font-weight:800;letter-spacing:-0.02em;text-transform:uppercase;line-height:1">A Voice of<br>Banaras</h2>
+      <p>Rooted in the revered Banaras Gharana and shaped by two decades of dedicated practice, Manmohan Dogra is one of the most compelling voices in Hindustani classical percussion today — every <em>dha</em>, <em>tun</em> and <em>na</em> ringing with crystalline precision.</p>
+      <p>A disciple of SNA Awardee Pt. Vijay Shankar Mishra, he has broadened his rhythmic palette through the Delhi and Ajrada traditions — one of the few artists who fluently speaks the language of multiple tabla gharanas, from Edinburgh Festival Fringe to the Nehru Centre in London.</p>
+      <a href="about.html" class="txt-link">Read full biography →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section class="block" id="quote">
+  <div class="wrap quote-block">
+    <blockquote>“Tradition elevated by innovation.”</blockquote>
+    <cite>News24 · A Rhythmic Revelation</cite>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="block" id="gallery">
+  <div class="wrap">
+    <div class="head">
+      <h2>Gallery</h2>
+      <a href="gallery.html" class="label" style="color:var(--ink)">View all →</a>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="cell"><div style="background-image:url('CONCERT_0022.jpg')"></div></div>
+    <div class="cell"><div style="background-image:url('DSC_6030.jpg')"></div></div>
+    <div class="cell"><div style="background-image:url('CONCERT_0006.jpg')"></div></div>
+    <div class="cell"><div style="background-image:url('Z6B_6546.jpg')"></div></div>
+  </div>
+</section>
+
+<!-- ============ CONTACT / CTA ============ -->
+<section class="block cta" id="contact">
+  <div class="wrap">
+    <span class="label">Invite the Rhythm</span>
+    <h2 style="margin-top:1.4rem">Book<br>the Artist</h2>
+    <p>Solo recitals · fusion collaborations · university workshops. Enquiries welcomed from festivals, concert halls and arts institutions worldwide.</p>
+    <div class="row">
+      <a href="book.html" class="btn-solid">Book Manmohan</a>
+      <a href="contact.html" class="btn-ghost">Contact</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot-grid">
+    <a href="#top" class="brand" style="font-weight:800;text-transform:uppercase;letter-spacing:0.02em">Manmohan Dogra</a>
+    <div class="foot-socials">
+      <a href="https://www.instagram.com/manmohandogra_official" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=100010316465657" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://talayanfestival.com/#top" target="_blank" rel="noopener">Talayan Festival</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="foot-copy">© <span id="yr"></span> Manmohan Dogra · Tabla Artist · United Kingdom · Banaras Gharana</p>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
