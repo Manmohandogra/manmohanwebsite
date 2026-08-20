@@ -60,7 +60,7 @@
 
   /* ---------- hero (animated name + inline portrait) ---------- */
   .hero{
-    position:relative;height:100vh;min-height:600px;
+    position:relative;height:100vh;height:100dvh;min-height:520px;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     background:var(--black);overflow:hidden;text-align:center;
   }
@@ -76,9 +76,24 @@
   .namebox{
     display:inline-block;flex:0 0 auto;
     width:0.84em;height:0.84em;overflow:hidden;border-radius:0;background:#141414;
-    transform-origin:center center;will-change:transform;
   }
-  .namebox img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(100%) contrast(1.06);display:block}
+  .namebox img{width:100%;height:100%;object-fit:cover;object-position:center center;filter:grayscale(100%) contrast(1.06);display:block}
+
+  /* Full-size zoom layer. The image is rendered LARGE and scaled DOWN into the
+     letter slot — downscaling stays sharp, whereas scaling a ~27px element up
+     32x makes mobile browsers stretch a tiny raster (the blur bug). */
+  .hero-zoom{
+    position:fixed;top:50%;left:50%;z-index:5;
+    width:104vmax;height:104vmax;margin:-52vmax 0 0 -52vmax;
+    overflow:hidden;pointer-events:none;
+    transform-origin:center center;
+    backface-visibility:hidden;
+  }
+  .hero-zoom img{
+    width:100%;height:100%;object-fit:cover;object-position:center center;
+    filter:grayscale(100%) contrast(1.06);display:block;
+  }
+  .hero-zoom.done{display:none}
   .hero-sub{
     margin-top:2rem;font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--grey);
     opacity:0;transition:opacity .7s ease 6.1s;
@@ -182,8 +197,14 @@
 
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
+  <div class="hero-zoom" aria-hidden="true">
+    <picture>
+      <source media="(max-width:820px)" srcset="hero-portrait-1400.jpg">
+      <img src="hero-portrait-2200.jpg" alt="" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
   <h1 class="bigname" aria-label="Manmohan Dogra">
-    <span class="word w-left">Manmohan</span><span class="namebox" aria-hidden="true"><img src="IMG_8405.jpg" alt=""></span><span class="word w-right">Dogra</span>
+    <span class="word w-left">Manmohan</span><span class="namebox" aria-hidden="true"><img src="hero-portrait-1400.jpg" alt=""></span><span class="word w-right">Dogra</span>
   </h1>
   <p class="hero-sub">Tabla Virtuoso · Banaras Gharana</p>
   <span class="scroll-cue">Scroll ↓</span>
@@ -295,6 +316,7 @@
   var box=document.querySelector('.namebox');
   var left=document.querySelector('.w-left');
   var right=document.querySelector('.w-right');
+  var zoom=document.querySelector('.hero-zoom');
   if(!hero||!box||!left||!right) return;
 
   var name=document.querySelector('.bigname');
@@ -314,6 +336,7 @@
 
   if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     fitName();
+    if(zoom) zoom.classList.add('done');
     hero.classList.add('shown');
     return;
   }
@@ -322,39 +345,51 @@
     fitName();                                    // fit the full name before measuring the slot
     // measure the final letter-sized slot (layout already in place; only visibility hidden)
     var r=box.getBoundingClientRect();
-    if(!r.height){ hero.classList.add('shown'); return; }
-    var cx=r.left+r.width/2, cy=r.top+r.height/2;
-    // cover the ENTIRE screen: the square tile must span the longer viewport edge
-    // (parts of the image bleed off-screen at the start — intended)
-    var scale=Math.max(window.innerWidth, window.innerHeight)/r.height*1.04;
-    var dx=(window.innerWidth/2 - cx);
-    var dy=(window.innerHeight/2 - cy);
+    if(!r.height||!zoom){ hero.classList.add('shown'); if(zoom) zoom.classList.add('done'); return; }
 
-    // starting state: portrait covering the full screen, names off the two edges
-    box.style.transition='none';
-    box.style.opacity='0';
-    box.style.transform='translate('+dx+'px,'+dy+'px) scale('+scale+')';
+    // the zoom layer starts at its natural full-screen size (104vmax square) and
+    // shrinks DOWN onto the slot, so the bitmap is always downscaled = sharp
+    var zr=zoom.getBoundingClientRect();
+    var scale=r.height/zr.height;
+    var dx=(r.left+r.width/2) - (zr.left+zr.width/2);
+    var dy=(r.top+r.height/2) - (zr.top+zr.height/2);
+
+    // starting state: names off the two edges; picture already covering the screen
     left.style.transition='none';   left.style.transform='translateX(-115vw)';
     right.style.transition='none';  right.style.transform='translateX(115vw)';
+    box.style.opacity='0';                        // hide the tiny slot copy until the landing
+    zoom.style.transition='none';
+    zoom.style.transform='translate(0,0) scale(1)';
 
     hero.classList.add('shown');
-    void box.offsetWidth; // force reflow so the start state is committed
+    void zoom.offsetWidth; // force reflow so the start state is committed
 
     // one continuous 6s zoom-out that starts from the very first moment,
     // but eased so it is near-imperceptible at first, accelerates through the
     // middle, and settles gently into the letter slot (never linear)
-    box.style.transition='opacity .5s ease, transform 6s cubic-bezier(.85,.02,.17,1)';
-    box.style.opacity='1';
-    box.style.transform='translate(0,0) scale(1)';
+    zoom.style.transition='transform 6s cubic-bezier(.85,.02,.17,1)';
+    zoom.style.transform='translate('+dx+'px,'+dy+'px) scale('+scale+')';
     // names arrive from both edges while the picture is completing its landing
     var ease='transform 1.8s cubic-bezier(.22,.8,.24,1) 3.9s';
     left.style.transition=ease;  left.style.transform='translateX(0)';
     right.style.transition=ease; right.style.transform='translateX(0)';
+
+    // hand off from the zoom layer to the inline slot image once it lands
+    var handedOff=false;
+    function handoff(){
+      if(handedOff) return; handedOff=true;
+      box.style.opacity='1';
+      zoom.classList.add('done');
+    }
+    zoom.addEventListener('transitionend', function(e){
+      if(e.propertyName==='transform') handoff();
+    });
+    setTimeout(handoff, 6400);   // fallback if transitionend never fires
   }
 
   // wait for fonts (affects letter widths -> slot position) and the portrait to load
   var start=function(){ requestAnimationFrame(function(){ requestAnimationFrame(run); }); };
-  var img=box.querySelector('img');
+  var img=(zoom&&zoom.querySelector('img'))||box.querySelector('img');
   var fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
   if(img && !img.complete){
     img.addEventListener('load', function(){ fontsReady.then(start); });
